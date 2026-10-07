@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>age漫画-经典青年漫画作品与在线阅读指南</title>
+<meta name="description" content="age漫画聚焦青年向漫画作品的整理与阅读指引，涵盖经典作品介绍、题材分类、阅读顺序建议与常见问题，帮助读者快速了解并选择合适的漫画内容。">
+<meta name="keywords" content="age漫画,青年漫画,漫画推荐,漫画阅读,漫画分类,经典漫画">
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+<style>
+:root{
+  --ink:#1c1b22;
+  --ink-soft:#4a4855;
+  --paper:#f6f3ec;
+  --paper-2:#fffdf8;
+  --line:#e0d9cc;
+  --accent:#c8452f;
+  --accent-2:#2f4b7c;
+  --gold:#b8892f;
+  --radius:10px;
+  --shadow:0 6px 22px rgba(28,27,34,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.75;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+.wrap{width:min(1180px,92%);margin:0 auto}
+
+/* ---------- header ---------- */
+.site-header{
+  background:var(--paper-2);
+  border-bottom:1px solid var(--line);
+  position:sticky;top:0;z-index:50;
+}
+.header-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:20px;padding:14px 0;
+}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-mark{
+  width:44px;height:44px;flex:0 0 44px;
+  background:linear-gradient(140deg,var(--accent),#8e2b1c);
+  color:#fff;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:15px;letter-spacing:.5px;
+  box-shadow:0 4px 12px rgba(200,69,47,.32);
+}
+.brand-text b{display:block;font-size:19px;letter-spacing:.5px}
+.brand-text span{font-size:12px;color:var(--ink-soft);letter-spacing:2px}
+.main-nav{display:flex;gap:6px;flex-wrap:wrap}
+.main-nav a{
+  padding:8px 14px;border-radius:6px;font-size:15px;color:var(--ink-soft);
+  transition:.2s;
+}
+.main-nav a:hover{background:#f0ece2;color:var(--accent)}
+.nav-cta{
+  background:var(--ink);color:#fff !important;
+  padding:9px 18px;border-radius:6px;font-size:14px;
+}
+.nav-cta:hover{background:var(--accent) !important;color:#fff !important}
+
+/* ---------- hero ---------- */
+.hero{
+  background:
+    radial-gradient(circle at 88% 12%,rgba(200,69,47,.10),transparent 46%),
+    radial-gradient(circle at 6% 88%,rgba(47,75,124,.10),transparent 44%),
+    var(--paper-2);
+  border-bottom:1px solid var(--line);
+  padding:52px 0 46px;
+}
+.hero-grid{
+  display:grid;grid-template-columns:1.35fr .95fr;gap:44px;align-items:center;
+}
+.hero-tag{
+  display:inline-block;font-size:13px;letter-spacing:2px;
+  color:var(--accent);border:1px solid rgba(200,69,47,.4);
+  padding:4px 12px;border-radius:99px;margin-bottom:18px;
+}
+.hero h1{
+  font-size:clamp(28px,4vw,42px);line-height:1.3;
+  letter-spacing:.5px;margin-bottom:16px;
+}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p{color:var(--ink-soft);font-size:16.5px;max-width:56ch}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.btn{
+  display:inline-block;padding:12px 24px;border-radius:8px;
+  font-size:15px;font-weight:600;transition:.22s;border:1px solid transparent;
+}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 6px 16px rgba(200,69,47,.28)}
+.btn-primary:hover{background:#a9361f;transform:translateY(-1px)}
+.btn-ghost{border-color:var(--line);background:#fff;color:var(--ink)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+.hero-side{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px 24px;box-shadow:var(--shadow);
+}
+.hero-side h2{
+  font-size:15px;letter-spacing:1px;color:var(--ink-soft);
+  font-weight:600;padding-bottom:12px;border-bottom:1px dashed var(--line);
+  margin-bottom:14px;
+}
+.quick-list{list-style:none}
+.quick-list li{
+  display:flex;gap:12px;padding:9px 0;font-size:14.5px;
+  border-bottom:1px solid #f2eee5;
+}
+.quick-list li:last-child{border-bottom:none}
+.q-num{
+  flex:0 0 22px;height:22px;line-height:22px;text-align:center;
+  background:#f3efe6;color:var(--accent);border-radius:5px;
+  font-size:12px;font-weight:700;margin-top:3px;
+}
+.quick-list b{font-weight:600}
+.quick-list small{display:block;color:var(--ink-soft);font-size:13px;line-height:1.6}
+
+/* ---------- section base ---------- */
+section{padding:56px 0}
+.sec-head{margin-bottom:30px}
+.sec-head .eyebrow{
+  font-size:13px;letter-spacing:3px;color:var(--gold);
+  text-transform:uppercase;margin-bottom:8px;display:block;
+}
+.sec-head h2{font-size:clamp(22px,2.6vw,30px);letter-spacing:.5px}
+.sec-head p{color:var(--ink-soft);margin-top:10px;max-width:70ch;font-size:15.5px}
+
+/* ---------- intro ---------- */
+.intro{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.intro-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px}
+.intro p{margin-bottom:14px;color:var(--ink-soft)}
+.intro p strong{color:var(--ink)}
+.intro-note{
+  background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);
+  border-radius:8px;padding:18px 20px;font-size:14.5px;color:var(--ink-soft);
+}
+.intro-note b{color:var(--ink);display:block;margin-bottom:6px;font-size:15px}
+
+/* ---------- genres ---------- */
+.genre-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px;
+}
+.genre-card{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px 20px;transition:.24s;
+}
+.genre-card:hover{
+  transform:translateY(-3px);box-shadow:var(--shadow);border-color:#d6c9b2;
+}
+.genre-card .icon{
+  width:38px;height:38px;border-radius:8px;display:flex;
+  align-items:center;justify-content:center;font-size:17px;
+  margin-bottom:14px;background:#f4efe4;color:var(--accent);
+}
+.genre-card h3{font-size:17px;margin-bottom:8px}
+.genre-card p{font-size:14px;color:var(--ink-soft);line-height:1.7}
+
+/* ---------- works ---------- */
+.works{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.works-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;
+}
+.work-card{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;display:flex;flex-direction:column;transition:.24s;
+}
+.work-card:hover{box-shadow:var(--shadow);transform:translateY(-3px)}
+.work-cover{
+  height:132px;display:flex;align-items:flex-end;padding:14px 18px;
+  color:#fff;font-weight:700;font-size:17px;letter-spacing:.5px;
+}
+.c1{background:linear-gradient(135deg,#2f4b7c,#1d3055)}
+.c2{background:linear-gradient(135deg,#c8452f,#8e2b1c)}
+.c3{background:linear-gradient(135deg,#5c6b4a,#3b4630)}
+.c4{background:linear-gradient(135deg,#8a6d3b,#5d4823)}
+.c5{background:linear-gradient(135deg,#4a3b5c,#2e2439)}
+.c6{background:linear-gradient(135deg,#3a6b6b,#224747)}
+.work-body{padding:18px;flex:1;display:flex;flex-direction:column}
+.work-body p{font-size:14px;color:var(--ink-soft);flex:1}
+.work-meta{
+  margin-top:14px;padding-top:12px;border-top:1px dashed var(--line);
+  display:flex;gap:8px;flex-wrap:wrap;
+}
+.chip{
+  font-size:12px;padding:3px 10px;border-radius:99px;
+  background:#f4efe4;color:#7a6a4e;
+}
+
+/* ---------- guide steps ---------- */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
+.step{
+  position:relative;padding:24px 22px;background:#fff;
+  border:1px solid var(--line);border-radius:var(--radius);
+}
+.step .num{
+  font-size:30px;font-weight:800;color:#ece5d6;line-height:1;
+  margin-bottom:10px;letter-spacing:1px;
+}
+.step h3{font-size:16.5px;margin-bottom:8px}
+.step p{font-size:14px;color:var(--ink-soft)}
+
+/* ---------- faq ---------- */
+.faq{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.faq-list{display:flex;flex-direction:column;gap:12px;max-width:900px}
+.faq-item{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:18px 22px;
+}
+.faq-item h3{
+  font-size:16px;display:flex;gap:10px;align-items:flex-start;margin-bottom:8px;
+}
+.faq-item h3::before{
+  content:"Q";flex:0 0 22px;height:22px;line-height:22px;text-align:center;
+  background:var(--accent);color:#fff;border-radius:5px;font-size:12px;font-weight:700;
+}
+.faq-item p{font-size:14.5px;color:var(--ink-soft);padding-left:32px}
+
+/* ---------- aside / tips ---------- */
+.tips-band{
+  background:linear-gradient(135deg,#1c1b22,#2b2a35);
+  color:#e9e5dc;border-radius:var(--radius);
+  padding:38px 40px;display:grid;grid-template-columns:1fr 1fr;gap:34px;
+}
+.tips-band h2{font-size:22px;margin-bottom:14px;color:#fff}
+.tips-band p{font-size:14.5px;color:#bdb8ad;margin-bottom:10px}
+.tips-list{list-style:none}
+.tips-list li{
+  font-size:14.5px;padding:9px 0 9px 22px;position:relative;
+  color:#d8d3c8;border-bottom:1px solid rgba(255,255,255,.08);
+}
+.tips-list li:last-child{border-bottom:none}
+.tips-list li::before{
+  content:"";position:absolute;left:0;top:17px;
+  width:7px;height:7px;border-radius:2px;background:var(--gold);
+}
+
+/* ---------- footer ---------- */
+.site-footer{
+  background:#16151b;color:#9d98a5;padding:46px 0 26px;font-size:14px;
+}
+.footer-grid{
+  display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:30px;
+  padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,.09);
+}
+.footer-grid h3{color:#fff;font-size:15px;margin-bottom:14px;letter-spacing:.5px}
+.footer-grid p{line-height:1.8;font-size:13.5px}
+.footer-grid ul{list-style:none}
+.footer-grid ul li{margin-bottom:9px}
+.footer-grid ul a{font-size:13.5px;color:#9d98a5;transition:.2s}
+.footer-grid ul a:hover{color:var(--gold)}
+.copyright{
+  padding-top:20px;text-align:center;font-size:13px;color:#6d6878;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width:980px){
+  .hero-grid,.intro-grid,.tips-band{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:720px){
+  .header-inner{flex-direction:column;align-items:flex-start;gap:12px}
+  .main-nav{gap:4px}
+  .main-nav a{padding:7px 10px;font-size:14px}
+  .hero{padding:38px 0 34px}
+  section{padding:42px 0}
+  .tips-band{padding:28px 22px}
+  .footer-grid{grid-template-columns:1fr;gap:24px}
+}
+@media (max-width:480px){
+  body{font-size:15px}
+  .brand-mark{width:38px;height:38px;flex:0 0 38px;font-size:13px}
+  .brand-text b{font-size:17px}
+  .hero-actions .btn{width:100%;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <div class="brand">
+      <div class="brand-mark">AGE</div>
+      <div class="brand-text">
+        <b>age漫画</b>
+        <span>青年向漫画阅读参考</span>
+      </div>
+    </div>
+    <nav class="main-nav" aria-label="主导航">
+      <a href="#intro">认识age漫画</a>
+      <a href="#genre">题材分类</a>
+      <a href="#works">作品一览</a>
+      <a href="#guide">阅读建议</a>
+      <a href="#faq">常见问题</a>
+      <a href="#intro" class="nav-cta">开始了解</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="hero-tag">青年向 · 题材整理 · 阅读指引</span>
+        <h1>age漫画：面向成年读者的<em>青年漫画</em>阅读参考</h1>
+        <p>age漫画常被用来指代面向成年或青年读者、题材更成熟的一类漫画作品。它们往往在人物塑造、社会议题和叙事节奏上更贴近现实，适合希望读到更有深度故事的读者。本页整理题材分类、选读思路与常见疑问，帮助你更快找到适合自己的作品。</p>
+        <div class="hero-actions">
+          <a href="#works" class="btn btn-primary">查看作品方向</a>
+          <a href="#guide" class="btn btn-ghost">阅读入门建议</a>
+        </div>
+      </div>
+      <aside class="hero-side">
+        <h2>快速了解要点</h2>
+        <ul class="quick-list">
+          <li>
+            <span class="q-num">1</span>
+            <div><b>题材更成熟</b><small>职场、悬疑、历史、社会现实等方向较为常见。</small></div>
+          </li>
+          <li>
+            <span class="q-num">2</span>
+            <div><b>叙事更完整</b><small>多卷长篇较多，人物成长线通常更细致。</small></div>
+          </li>
+          <li>
+            <span class="q-num">3</span>
+            <div><b>阅读门槛不同</b><small>部分作品涉及成人议题，建议先了解内容基调。</small></div>
+          </li>
+          <li>
+            <span class="q-num">4</span>
+            <div><b>选择看偏好</b><small>按题材、篇幅、画风三个维度筛选效率更高。</small></div>
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="intro" id="intro">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">About</span>
+        <h2>age漫画指的是什么</h2>
+        <p>理解这个概念，是选择作品的第一步。</p>
+      </div>
+      <div class="intro-grid">
+        <div>
+          <p><strong>“age漫画”并不是一部具体作品的名字，而更像是一类漫画的统称。</strong>在中文语境里，它通常被用来指代面向青年及成年读者的漫画内容，与主要面向低龄读者的作品在题材深度、人物关系和叙事方式上有所区别。</p>
+          <p>这类作品常见于日本漫画的青年志连载体系，也出现在其他国家和地区的独立漫画、网络漫画中。它们不刻意回避现实议题，可能涉及职场压力、家庭关系、社会边缘群体、历史事件或心理状态等主题，因此在阅读体验上更接近文学作品。</p>
+          <p>需要说明的是，不同平台、不同读者对“青年漫画”的界定并不完全一致。有的按连载杂志划分，有的按内容尺度划分，也有的按目标读者年龄段划分。因此在实际查找时，建议结合题材标签和作品简介综合判断，而不是只看一个分类名称。</p>
+          <p>如果你刚开始接触这类作品，可以先从篇幅较短、题材相对温和的单行本入手，再逐步尝试长篇系列。这样既能感受叙事风格，也不容易因为信息量过大而中途放弃。</p>
+        </div>
+        <div class="intro-note">
+          <b>阅读前的小提醒</b>
+          青年漫画的题材跨度很大，部分作品包含暴力、心理压抑或成人议题描写。选择时建议先查看作品的内容提示与读者评价，根据自身接受程度决定是否阅读。本页仅提供题材与阅读方向的整理，不提供具体作品资源。
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GENRE -->
+  <section id="genre">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Categories</span>
+        <h2>常见题材分类</h2>
+        <p>按题材筛选，是找到合适作品最直接的方式。以下方向在青年漫画中较为常见。</p>
+      </div>
+      <div class="genre-grid">
+        <article class="genre-card">
+          <div class="icon">职</div>
+          <h3>职场与现实</h3>
+          <p>围绕工作、行业生态与个人选择展开，常描写普通人在现实压力下的坚持与妥协，节奏偏写实。</p>
+        </article>
+        <article class="genre-card">
+          <div class="icon">悬</div>
+          <h3>悬疑与推理</h3>
+          <p>以案件、谜题或心理博弈为核心，注重线索铺设与反转设计，阅读时更适合连续跟进。</p>
+        </article>
+        <article class="genre-card">
+          <div class="icon">史</div>
+          <h3>历史与时代</h3>
+          <p>以特定历史时期为背景，通过个体视角呈现时代变迁，往往需要一定的背景知识辅助理解。</p>
+        </article>
+        <article class="genre-card">
+          <div class="icon">青</div>
+          <h3>青春与成长</h3>
+          <p>聚焦青年阶段的迷茫、友情与自我认同，情绪表达细腻，是入门青年漫画较为友好的方向。</p>
+        </article>
+        <article class="genre-card">
+          <div class="icon">幻</div>
+          <h3>科幻与幻想</h3>
+          <p>借助架空设定探讨科技、人性与社会结构，世界观构建通常较为完整，适合喜欢思辨的读者。</p>
+        </article>
+        <article class="genre-card">
+          <div class="icon">生</div>
+          <h3>生活与日常</h3>
+          <p>以饮食、居住、亲情等日常细节为切入点，节奏舒缓，适合在碎片时间中慢慢阅读。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKS -->
+  <section class="works" id="works">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Reading List</span>
+        <h2>按方向整理的作品参考</h2>
+        <p>以下为题材方向的示例说明，用于帮助理解不同作品的定位差异，不构成具体推荐或排名。</p>
+      </div>
+      <div class="works-grid">
+        <article class="work-card">
+          <div class="work-cover c1">现实职场方向</div>
+          <div class="work-body">
+            <p>这类作品常以某个具体行业为舞台，通过项目推进、同事关系与职业选择，呈现成年人在工作中的处境与思考。</p>
+            <div class="work-meta">
+              <span class="chip">写实</span>
+              <span class="chip">中长篇</span>
+              <span class="chip">社会观察</span>
+            </div>
+          </div>
+        </article>
+        <article class="work-card">
+          <div class="work-cover c2">悬疑推理方向</div>
+          <div class="work-body">
+            <p>以事件为线索逐步展开，重视伏笔回收与人物动机，适合喜欢边读边推敲的读者。</p>
+            <div class="work-meta">
+              <span class="chip">推理</span>
+              <span class="chip">节奏紧凑</span>
+              <span class="chip">反转</span>
+            </div>
+          </div>
+        </article>
+        <article class="work-card">
+          <div class="work-cover c3">历史时代方向</div>
+          <div class="work-body">
+            <p>通过小人物的经历折射大时代，画面与考据往往较为讲究，阅读时可配合背景资料。</p>
+            <div class="work-meta">
+              <span class="chip">历史</span>
+              <span class="chip">长篇</span>
+              <span class="chip">群像</span>
+            </div>
+          </div>
+        </article>
+        <article class="work-card">
+          <div class="work-cover c4">成长青春方向</div>
+          <div class="work-body">
+            <p>关注青年阶段的情感与自我认知，情绪描写细腻，适合作为接触青年漫画的起点。</p>
+            <div class="work-meta">
+              <span class="chip">成长</span>
+              <span class="chip">短篇</span>
+              <span class="chip">情感</span>
+            </div>
+          </div>
+        </article>
+        <article class="work-card">
+          <div class="work-cover c5">科幻思辨方向</div>
+          <div class="work-body">
+            <p>借助未来设定讨论技术、伦理与人性，世界观完整，适合愿意花时间理解设定的读者。</p>
+            <div class="work-meta">
+              <span class="chip">科幻</span>
+              <span class="chip">设定向</span>
+              <span class="chip">思辨</span>
+            </div>
+          </div>
+        </article>
+        <article class="work-card">
+          <div class="work-cover c6">生活日常方向</div>
+          <div class="work-body">
+            <p>以饮食、居住、家庭等细节构成主线，节奏平缓，适合放松阅读与反复翻看。</p>
+            <div class="work-meta">
+              <span class="chip">日常</span>
+              <span class="chip">治愈</span>
+              <span class="chip">轻松</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUIDE -->
+  <section id="guide">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">How to Start</span>
+        <h2>如何挑选适合自己的作品</h2>
+        <p>按以下顺序判断，可以减少试错成本。</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="num">01</div>
+          <h3>先确定题材偏好</h3>
+          <p>从职场、悬疑、历史、成长等方向中选出最感兴趣的类别，缩小范围后再看具体作品。</p>
+        </div>
+        <div class="step">
+          <div class="num">02</div>
+          <h3>再看篇幅长度</h3>
+          <p>短篇适合尝试风格，长篇适合沉浸阅读。若时间有限，优先选择单行本或短篇集。</p>
+        </div>
+        <div class="step">
+          <div class="num">03</div>
+          <h3>了解内容基调</h3>
+          <p>查看作品简介与读者评价，确认是否包含自己不适应的内容，再决定是否开始。</p>
+        </div>
+        <div class="step">
+          <div class="num">04</div>
+          <h3>建立阅读节奏</h3>
+          <p>长篇作品不必一次读完，按卷或按章节推进，更容易保持阅读兴趣和理解连贯性。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIPS -->
+  <section>
+    <div class="wrap">
+      <div class="tips-band">
+        <div>
+          <h2>阅读时值得注意的几点</h2>
+          <p>青年漫画的价值往往不只在于情节，也在于它对现实问题的呈现方式。带着问题去读，收获会更明显。</p>
+          <p>同时也要保持自己的判断，作品中的观点属于创作者视角，不必全盘接受。</p>
+        </div>
+        <ul class="tips-list">
+          <li>留意作品的时代背景，有助于理解人物动机。</li>
+          <li>长篇作品建议记录人物关系，避免混淆。</li>
+          <li>遇到不适内容可以暂停，阅读节奏由自己掌握。</li>
+          <li>优先选择正规渠道阅读，支持正版内容。</li>
+          <li>把作品当作观察社会的窗口，而非唯一结论。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">FAQ</span>
+        <h2>常见问题</h2>
+        <p>关于 age漫画 与青年漫画，读者问得较多的几个问题。</p>
+      </div>
+      <div class="faq-list">
+        <article class="faq-item">
+          <h3>age漫画是某一部具体作品吗？</h3>
+          <p>通常不是。它更多是中文语境中对面向青年及成年读者的漫画内容的一种统称，具体指向会因平台和使用习惯而有所不同。</p>
+        </article>
+        <article class="faq-item">
+          <h3>青年漫画和少年漫画有什么区别？</h3>
+          <p>主要差别在目标读者与题材深度。少年漫画多以成长、热血、友情为主线；青年漫画则更常涉及现实议题、复杂人际关系与成人视角的叙事。</p>
+        </article>
+        <article class="faq-item">
+          <h3>初次接触应该从哪类题材开始？</h3>
+          <p>如果不确定自己的偏好，可以从生活日常或成长青春方向入手，这两类作品节奏相对平缓，理解门槛较低，适合作为起点。</p>
+        </article>
+        <article class="faq-item">
+          <h3>阅读青年漫画需要注意什么？</h3>
+          <p>部分作品包含暴力、心理压抑或成人议题描写，建议先查看内容提示，根据自身接受程度选择，并通过正规渠道阅读。</p>
+        </article>
+        <article class="faq-item">
+          <h3>长篇作品读不下去怎么办？</h3>
+          <p>可以按卷或按篇章拆分阅读，中间穿插短篇作品调节节奏。也可以先了解故事主线，再决定是否继续深入。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h3>age漫画</h3>
+        <p>面向青年与成年读者的漫画题材整理与阅读参考，帮助读者理解分类、选择方向、建立阅读节奏。</p>
+      </div>
+      <div>
+        <h3>内容导航</h3>
+        <ul>
+          <li><a href="#intro">认识age漫画</a></li>
+          <li><a href="#genre">题材分类</a></li>
+          <li><a href="#works">作品方向</a></li>
+          <li><a href="#guide">阅读建议</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>阅读帮助</h3>
+        <ul>
+          <li><a href="#guide">如何挑选作品</a></li>
+          <li><a href="#faq">常见问题</a></li>
+          <li><a href="#genre">题材说明</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>阅读提示</h3>
+        <ul>
+          <li>注意内容分级提示</li>
+          <li>选择正规阅读渠道</li>
+          <li>合理安排阅读时间</li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      © 2025 age漫画 · 本页内容为题材整理与阅读参考，不提供任何作品资源下载。
+    </div>
+  </div>
+</footer>
+
+</body>
+            </html>
