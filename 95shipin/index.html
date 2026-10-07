@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>95视频在线观看 - 影视内容分类导航与观看指南</title>
+<meta name="description" content="95视频在线观看页面提供影视内容分类导航、热门类型介绍、观看方式说明与常见问题解答，帮助用户快速了解在线视频观看的入口、分类与使用建议。">
+<meta name="keywords" content="95视频在线观看,在线视频,影视观看,视频分类,在线播放,观看指南">
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+<style>
+  :root{
+    --bg:#0e1116;
+    --bg-soft:#151a22;
+    --panel:#1b222c;
+    --panel-2:#212a36;
+    --line:#2b3542;
+    --text:#e8edf4;
+    --text-soft:#a4b0c0;
+    --text-dim:#7c8798;
+    --accent:#ff5c39;
+    --accent-2:#ffb020;
+    --accent-soft:rgba(255,92,57,.12);
+    --radius:14px;
+    --radius-sm:9px;
+    --shadow:0 10px 30px rgba(0,0,0,.35);
+    --max:1180px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB","Helvetica Neue",Arial,sans-serif;
+    line-height:1.75;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  ul{list-style:none}
+
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+
+  /* ---------- 顶部 ---------- */
+  .site-header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(14,17,22,.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .header-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:18px;height:64px;
+  }
+  .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:19px;letter-spacing:.5px}
+  .logo-mark{
+    width:34px;height:34px;border-radius:10px;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    display:flex;align-items:center;justify-content:center;
+    font-size:15px;font-weight:800;color:#151a22;
+  }
+  .logo span small{display:block;font-size:11px;font-weight:400;color:var(--text-dim);letter-spacing:1px}
+  .main-nav{display:flex;gap:26px;font-size:15px}
+  .main-nav a{color:var(--text-soft);transition:color .2s;position:relative;padding:4px 0}
+  .main-nav a:hover{color:var(--text)}
+  .main-nav a::after{
+    content:"";position:absolute;left:0;bottom:-2px;width:0;height:2px;
+    background:var(--accent);transition:width .25s;border-radius:2px;
+  }
+  .main-nav a:hover::after{width:100%}
+  .header-cta{
+    display:inline-flex;align-items:center;gap:6px;
+    background:var(--accent);color:#fff;
+    padding:8px 16px;border-radius:999px;font-size:14px;font-weight:600;
+    transition:transform .2s,box-shadow .2s;
+  }
+  .header-cta:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(255,92,57,.35)}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;overflow:hidden;
+    background:
+      radial-gradient(900px 400px at 82% -10%,rgba(255,92,57,.22),transparent 60%),
+      radial-gradient(700px 380px at 8% 110%,rgba(255,176,32,.14),transparent 60%),
+      var(--bg-soft);
+    border-bottom:1px solid var(--line);
+  }
+  .hero-inner{
+    display:grid;grid-template-columns:1.15fr .85fr;
+    gap:48px;align-items:center;
+    padding:64px 0 58px;
+  }
+  .hero-tag{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:13px;color:var(--accent-2);
+    background:var(--accent-soft);
+    border:1px solid rgba(255,92,57,.3);
+    padding:5px 13px;border-radius:999px;margin-bottom:20px;
+  }
+  .hero h1{
+    font-size:clamp(28px,4vw,44px);
+    line-height:1.3;font-weight:800;letter-spacing:.5px;
+    margin-bottom:18px;
+  }
+  .hero h1 em{
+    font-style:normal;
+    background:linear-gradient(100deg,var(--accent),var(--accent-2));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero p{color:var(--text-soft);font-size:16.5px;max-width:560px;margin-bottom:26px}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:12px 24px;border-radius:999px;font-size:15px;font-weight:600;
+    transition:transform .2s,box-shadow .2s,background .2s;
+    border:1px solid transparent;cursor:pointer;
+  }
+  .btn-primary{background:linear-gradient(120deg,var(--accent),#ff7b3d);color:#fff}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(255,92,57,.35)}
+  .btn-ghost{background:transparent;border-color:var(--line);color:var(--text-soft)}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--text)}
+
+  .hero-side{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:22px;
+    box-shadow:var(--shadow);
+  }
+  .hero-side h2{
+    font-size:15px;font-weight:700;color:var(--text);
+    display:flex;align-items:center;gap:8px;margin-bottom:16px;
+  }
+  .hero-side h2::before{
+    content:"";width:4px;height:15px;border-radius:2px;
+    background:linear-gradient(var(--accent),var(--accent-2));
+  }
+  .quick-list li{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:11px 0;border-bottom:1px dashed var(--line);
+    font-size:14.5px;color:var(--text-soft);
+  }
+  .quick-list li:last-child{border-bottom:0}
+  .quick-list li b{color:var(--text);font-weight:600}
+  .quick-list li span{color:var(--text-dim);font-size:13px}
+
+  /* ---------- 通用区块 ---------- */
+  section{padding:62px 0}
+  .section-head{margin-bottom:34px}
+  .section-head .kicker{
+    font-size:13px;letter-spacing:2px;color:var(--accent-2);
+    text-transform:uppercase;font-weight:600;margin-bottom:8px;
+  }
+  .section-head h2{font-size:clamp(22px,2.6vw,30px);font-weight:800;letter-spacing:.4px}
+  .section-head p{color:var(--text-soft);margin-top:10px;max-width:760px;font-size:15.5px}
+
+  /* ---------- 分类 ---------- */
+  .cat-grid{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));
+    gap:18px;
+  }
+  .cat-card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:22px 20px;
+    transition:transform .25s,border-color .25s,background .25s;
+    position:relative;overflow:hidden;
+  }
+  .cat-card::before{
+    content:"";position:absolute;inset:0 auto 0 0;width:3px;
+    background:linear-gradient(var(--accent),var(--accent-2));
+    opacity:0;transition:opacity .25s;
+  }
+  .cat-card:hover{transform:translateY(-4px);border-color:#3a4657;background:var(--panel-2)}
+  .cat-card:hover::before{opacity:1}
+  .cat-icon{
+    width:42px;height:42px;border-radius:11px;
+    background:var(--accent-soft);
+    display:flex;align-items:center;justify-content:center;
+    font-size:19px;margin-bottom:14px;
+  }
+  .cat-card h3{font-size:16.5px;font-weight:700;margin-bottom:8px}
+  .cat-card p{font-size:14px;color:var(--text-soft);line-height:1.7}
+
+  /* ---------- 观看方式 ---------- */
+  .steps{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:20px;
+  }
+  .step{
+    background:linear-gradient(180deg,var(--panel),rgba(27,34,44,.55));
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:24px 22px;
+  }
+  .step-num{
+    font-size:26px;font-weight:800;
+    background:linear-gradient(120deg,var(--accent),var(--accent-2));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    margin-bottom:12px;letter-spacing:1px;
+  }
+  .step h3{font-size:16px;font-weight:700;margin-bottom:8px}
+  .step p{font-size:14px;color:var(--text-soft)}
+
+  /* ---------- 内容区 + 侧栏 ---------- */
+  .content-layout{
+    display:grid;grid-template-columns:1fr 320px;gap:40px;align-items:start;
+  }
+  .article-list{display:flex;flex-direction:column;gap:18px}
+  .article-item{
+    display:flex;gap:18px;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:20px;
+    transition:border-color .25s,background .25s;
+  }
+  .article-item:hover{border-color:#3a4657;background:var(--panel-2)}
+  .art-thumb{
+    flex:0 0 96px;height:66px;border-radius:10px;
+    background:linear-gradient(135deg,#2a3542,#1c242f);
+    display:flex;align-items:center;justify-content:center;
+    font-size:22px;color:var(--accent-2);
+  }
+  .article-item h3{font-size:16.5px;font-weight:700;margin-bottom:7px}
+  .article-item p{font-size:14px;color:var(--text-soft)}
+  .art-meta{margin-top:9px;font-size:12.5px;color:var(--text-dim);display:flex;gap:14px;flex-wrap:wrap}
+
+  .side-card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:22px;
+    margin-bottom:22px;
+  }
+  .side-card h3{
+    font-size:15.5px;font-weight:700;margin-bottom:16px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .side-card h3::before{
+    content:"";width:4px;height:14px;border-radius:2px;
+    background:linear-gradient(var(--accent),var(--accent-2));
+  }
+  .rank-list li{
+    display:flex;gap:12px;align-items:flex-start;
+    padding:10px 0;border-bottom:1px dashed var(--line);font-size:14px;
+  }
+  .rank-list li:last-child{border-bottom:0}
+  .rank-no{
+    flex:0 0 22px;height:22px;border-radius:6px;
+    background:var(--accent-soft);color:var(--accent-2);
+    font-size:12.5px;font-weight:700;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .rank-list li strong{display:block;font-weight:600;color:var(--text);font-size:14.5px}
+  .rank-list li span{font-size:12.5px;color:var(--text-dim)}
+  .tip-box{
+    background:rgba(255,176,32,.08);
+    border:1px solid rgba(255,176,32,.25);
+    border-radius:var(--radius-sm);
+    padding:14px 16px;font-size:13.5px;color:#e6cf9e;line-height:1.7;
+  }
+
+  /* ---------- FAQ ---------- */
+  .faq-list{display:flex;flex-direction:column;gap:12px}
+  .faq-item{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius-sm);
+    overflow:hidden;
+  }
+  .faq-q{
+    width:100%;text-align:left;background:none;border:0;color:var(--text);
+    font-size:15.5px;font-weight:600;font-family:inherit;
+    padding:17px 20px;cursor:pointer;
+    display:flex;justify-content:space-between;align-items:center;gap:14px;
+  }
+  .faq-q .sign{
+    flex:0 0 22px;height:22px;border-radius:50%;
+    background:var(--accent-soft);color:var(--accent-2);
+    display:flex;align-items:center;justify-content:center;
+    font-size:15px;line-height:1;transition:transform .25s;
+  }
+  .faq-item.open .faq-q .sign{transform:rotate(45deg)}
+  .faq-a{
+    max-height:0;overflow:hidden;transition:max-height .3s ease;
+    padding:0 20px;color:var(--text-soft);font-size:14.5px;
+  }
+  .faq-item.open .faq-a{max-height:340px;padding-bottom:18px}
+
+  /* ---------- 页脚 ---------- */
+  .site-footer{
+    border-top:1px solid var(--line);
+    background:var(--bg-soft);
+    padding:48px 0 26px;margin-top:20px;
+  }
+  .footer-grid{
+    display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;
+    padding-bottom:32px;border-bottom:1px solid var(--line);
+  }
+  .footer-brand p{font-size:14px;color:var(--text-soft);margin-top:14px;max-width:320px}
+  .footer-col h4{font-size:14.5px;font-weight:700;margin-bottom:14px}
+  .footer-col li{margin-bottom:9px}
+  .footer-col a{font-size:13.5px;color:var(--text-soft);transition:color .2s}
+  .footer-col a:hover{color:var(--accent-2)}
+  .footer-bottom{
+    padding-top:22px;display:flex;justify-content:space-between;
+    align-items:center;gap:16px;flex-wrap:wrap;
+    font-size:13px;color:var(--text-dim);
+  }
+
+  /* ---------- 响应式 ---------- */
+  @media (max-width:960px){
+    .hero-inner{grid-template-columns:1fr;gap:34px;padding:48px 0 44px}
+    .content-layout{grid-template-columns:1fr;gap:30px}
+    .footer-grid{grid-template-columns:1fr 1fr;gap:26px}
+  }
+  @media (max-width:720px){
+    .main-nav{display:none}
+    section{padding:46px 0}
+    .header-inner{height:58px}
+    .article-item{flex-direction:column;gap:14px}
+    .art-thumb{flex:none;width:100%;height:96px}
+  }
+  @media (max-width:480px){
+    body{font-size:15px}
+    .hero-actions{flex-direction:column;align-items:stretch}
+    .btn{justify-content:center}
+    .footer-grid{grid-template-columns:1fr}
+    .logo span small{display:none}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="logo" href="#top">
+      <span class="logo-mark">95</span>
+      <span>95视频<small>在线观看导航</small></span>
+    </a>
+    <nav class="main-nav" aria-label="主导航">
+      <a href="#category">内容分类</a>
+      <a href="#howto">观看方式</a>
+      <a href="#guide">观看指南</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+    <a class="header-cta" href="#category">开始浏览</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- Hero -->
+  <section class="hero" style="padding:0">
+    <div class="wrap hero-inner">
+      <div>
+        <span class="hero-tag">在线视频 · 分类导航</span>
+        <h1>95视频在线观看：<em>按类型快速找到想看的视频内容</em></h1>
+        <p>“95视频在线观看”通常指通过网页直接播放视频内容的一类入口。本页面整理常见的视频分类、观看流程、设备与网络建议，以及使用中容易遇到的问题，帮助你在浏览前先弄清楚看什么、怎么看、要注意什么。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#category">浏览内容分类</a>
+          <a class="btn btn-ghost" href="#howto">了解观看方式</a>
+        </div>
+      </div>
+      <aside class="hero-side">
+        <h2>浏览前先了解</h2>
+        <ul class="quick-list">
+          <li><b>内容分类</b><span>按题材与形式划分</span></li>
+          <li><b>播放方式</b><span>网页端直接观看</span></li>
+          <li><b>设备支持</b><span>手机 / 平板 / 电脑</span></li>
+          <li><b>网络要求</b><span>建议稳定宽带或 Wi-Fi</span></li>
+          <li><b>使用提示</b><span>注意来源与版权</span></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 分类 -->
+  <section id="category">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">Categories</div>
+        <h2>常见视频内容分类</h2>
+        <p>在线视频平台的内容通常按题材、时长和形式进行划分。以下分类是浏览时较常遇到的类型，了解它们有助于更快定位自己想看的内容方向。</p>
+      </div>
+      <div class="cat-grid">
+        <article class="cat-card">
+          <div class="cat-icon">🎬</div>
+          <h3>影视剧集</h3>
+          <p>以连续剧、单元剧形式呈现的长视频内容，通常按集数更新，适合连续观看。</p>
+        </article>
+        <article class="cat-card">
+          <div class="cat-icon">🎞️</div>
+          <h3>电影短片</h3>
+          <p>单集完整叙事的影像内容，时长从几分钟到两小时不等，节奏相对紧凑。</p>
+        </article>
+        <article class="cat-card">
+          <div class="cat-icon">📺</div>
+          <h3>综艺娱乐</h3>
+          <p>以真人秀、访谈、竞技、脱口秀等形式为主，更新频率较高，偏轻松向。</p>
+        </article>
+        <article class="cat-card">
+          <div class="cat-icon">🎨</div>
+          <h3>动漫动画</h3>
+          <p>包含二维、三维动画与动态漫画等形式，题材覆盖日常、奇幻、科幻等方向。</p>
+        </article>
+        <article class="cat-card">
+          <div class="cat-icon">📹</div>
+          <h3>短视频片段</h3>
+          <p>时长较短、信息密度高的内容，适合碎片时间浏览，通常以合集形式出现。</p>
+        </article>
+        <article class="cat-card">
+          <div class="cat-icon">🎵</div>
+          <h3>音乐演出</h3>
+          <p>包括音乐现场、演唱会片段、舞蹈与乐器演奏等以声音表现为核心的内容。</p>
+        </article>
+        <article class="cat-card">
+          <div class="cat-icon">📚</div>
+          <h3>知识纪录</h3>
+          <p>纪录片、科普讲解、历史文化类内容，观看节奏偏慢，信息量相对集中。</p>
+        </article>
+        <article class="cat-card">
+          <div class="cat-icon">🎮</div>
+          <h3>游戏与体育</h3>
+          <p>游戏实况、赛事集锦、体育比赛回放等，通常有较强的时效性与话题性。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 观看方式 -->
+  <section id="howto" style="background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">How to watch</div>
+        <h2>在线观看的一般流程</h2>
+        <p>不同平台的界面设计各不相同，但从打开页面到开始播放，基本流程大体一致。提前了解这些环节，可以减少操作中的困惑。</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <h3>进入页面</h3>
+          <p>通过浏览器访问视频页面，确认地址栏信息与页面标题一致，避免误入仿冒站点。</p>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <h3>选择分类</h3>
+          <p>根据题材、地区、年份或更新状态筛选内容，缩小范围后再逐条浏览。</p>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <h3>点击播放</h3>
+          <p>进入详情页后点击播放区域，等待缓冲完成。若加载缓慢，可尝试切换清晰度。</p>
+        </div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <h3>调整体验</h3>
+          <p>按需设置音量、字幕、全屏与播放速度，网络不稳定时优先降低画质。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 内容布局 -->
+  <section id="guide">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">Guide</div>
+        <h2>观看指南与内容说明</h2>
+        <p>下面从内容选择、设备适配和常见困扰三个角度，整理在线观看时比较实用的经验。</p>
+      </div>
+
+      <div class="content-layout">
+        <div class="article-list">
+          <article class="article-item">
+            <div class="art-thumb">🔍</div>
+            <div>
+              <h3>如何判断一个视频是否值得点开</h3>
+              <p>可以先看标题、简介和时长，再结合封面判断内容方向。简介中若包含明确的题材、地区或年份信息，通常更容易判断是否符合自己的兴趣。</p>
+              <div class="art-meta"><span>内容选择</span><span>建议阅读 3 分钟</span></div>
+            </div>
+          </article>
+
+          <article class="article-item">
+            <div class="art-thumb">📱</div>
+            <div>
+              <h3>手机、平板与电脑的观看差异</h3>
+              <p>手机端操作便捷、适合碎片时间；平板屏幕更大，横屏观看体验较好；电脑端在清晰度切换、多标签管理方面更灵活。可根据场景选择设备。</p>
+              <div class="art-meta"><span>设备适配</span><span>建议阅读 2 分钟</span></div>
+            </div>
+          </article>
+
+          <article class="article-item">
+            <div class="art-thumb">📶</div>
+            <div>
+              <h3>缓冲慢、卡顿时的常见处理思路</h3>
+              <p>优先检查网络连接是否稳定，其次尝试降低清晰度或关闭其他占用带宽的程序。若问题持续，可更换浏览器或稍后重试。</p>
+              <div class="art-meta"><span>播放体验</span><span>建议阅读 2 分钟</span></div>
+            </div>
+          </article>
+
+          <article class="article-item">
+            <div class="art-thumb">🛡️</div>
+            <div>
+              <h3>观看过程中需要注意的安全事项</h3>
+              <p>谨慎对待要求下载未知程序、填写敏感信息或点击异常跳转的页面。正规的视频观看流程一般不需要额外安装来源不明的软件。</p>
+              <div class="art-meta"><span>安全提示</span><span>建议阅读 3 分钟</span></div>
+            </div>
+          </article>
+
+          <article class="article-item">
+            <div class="art-thumb">📖</div>
+            <div>
+              <h3>关于内容来源与版权的基本认识</h3>
+              <p>在线视频内容的版权归属各不相同。观看时建议选择来源清晰、信息透明的页面，并尊重内容创作者与权利人的合法权益。</p>
+              <div class="art-meta"><span>版权常识</span><span>建议阅读 2 分钟</span></div>
+            </div>
+          </article>
+        </div>
+
+        <aside>
+          <div class="side-card">
+            <h3>浏览关注点</h3>
+            <ul class="rank-list">
+              <li><span class="rank-no">1</span><div><strong>题材是否对味</strong><span>先看分类再选内容</span></div></li>
+              <li><span class="rank-no">2</span><div><strong>更新是否规律</strong><span>连续内容关注更新状态</span></div></li>
+              <li><span class="rank-no">3</span><div><strong>时长是否合适</strong><span>按可用时间选择</span></div></li>
+              <li><span class="rank-no">4</span><div><strong>播放是否顺畅</strong><span>关注清晰度与网络</span></div></li>
+              <li><span class="rank-no">5</span><div><strong>页面是否规范</strong><span>留意跳转与提示</span></div></li>
+            </ul>
+          </div>
+
+          <div class="side-card">
+            <h3>温馨提示</h3>
+            <div class="tip-box">
+              在线观看时，建议保持浏览器为较新版本，并开启常规的安全防护。遇到要求输入账号密码、支付信息或安装插件的页面，应先核实来源再操作。
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" style="background:var(--bg-soft);border-top:1px solid var(--line)">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">FAQ</div>
+        <h2>常见问题解答</h2>
+        <p>围绕“95视频在线观看”这一说法，整理了几个浏览者较常提出的问题。</p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            “95视频在线观看”具体指什么？
+            <span class="sign">+</span>
+          </button>
+          <div class="faq-a">
+            <p>这一说法通常泛指通过网页直接播放视频内容的观看方式，重点在于“在线”与“直接观看”。不同页面的内容范围、分类方式和界面设计可能差异较大，建议以实际打开的页面说明为准。</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            观看在线视频需要安装额外软件吗？
+            <span class="sign">+</span>
+          </button>
+          <div class="faq-a">
+            <p>多数网页端视频可以直接在浏览器中播放，不需要额外安装程序。如果页面提示必须下载来源不明的软件才能观看，建议谨慎处理，先确认来源是否可靠。</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            播放时一直缓冲怎么办？
+            <span class="sign">+</span>
+          </button>
+          <div class="faq-a">
+            <p>可以先检查网络是否稳定，尝试降低播放清晰度，或关闭其他占用带宽的应用。如果仍然卡顿，可更换浏览器、刷新页面，或稍后网络空闲时再试。</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            手机上观看和电脑上有什么区别？
+            <span class="sign">+</span>
+          </button>
+          <div class="faq-a">
+            <p>主要区别在于屏幕尺寸、操作方式和清晰度表现。手机便于随时观看，电脑在大屏与多任务处理上更占优势。选择哪种设备，取决于你当下的观看场景和时长。</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            如何判断视频页面是否安全？
+            <span class="sign">+</span>
+          </button>
+          <div class="faq-a">
+            <p>可以留意页面是否频繁强制跳转、是否要求填写与观看无关的个人信息、是否诱导下载不明文件。保持浏览器更新并开启安全防护，也是较基础的做法。</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            观看视频时应该注意哪些版权问题？
+            <span class="sign">+</span>
+          </button>
+          <div class="faq-a">
+            <p>视频内容的版权归属各不相同。建议选择来源清晰、信息透明的页面观看，不随意传播、录制或二次上传受版权保护的内容，尊重创作者与权利人的合法权益。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="#top">
+          <span class="logo-mark">95</span>
+          <span>95视频<small>在线观看导航</small></span>
+        </a>
+        <p>围绕在线视频观看整理分类说明、使用流程与常见问题，帮助浏览者更清晰地了解相关内容与注意事项。</p>
+      </div>
+      <div class="footer-col">
+        <h4>内容分类</h4>
+        <ul>
+          <li><a href="#category">影视剧集</a></li>
+          <li><a href="#category">电影短片</a></li>
+          <li><a href="#category">动漫动画</a></li>
+          <li><a href="#category">综艺娱乐</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>使用帮助</h4>
+        <ul>
+          <li><a href="#howto">观看方式</a></li>
+          <li><a href="#guide">观看指南</a></li>
+          <li><a href="#faq">常见问题</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>相关说明</h4>
+        <ul>
+          <li><a href="#guide">安全提示</a></li>
+          <li><a href="#guide">版权常识</a></li>
+          <li><a href="#guide">设备适配</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>本站为内容导航与说明页面，具体视频内容以实际来源页面为准。</span>
+      <span>© 2024 95视频在线观看导航</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var items = document.querySelectorAll('.faq-item');
+    items.forEach(function (item) {
+      var btn = item.querySelector('.faq-q');
+      btn.addEventListener('click', function () {
+        var isOpen = item.classList.contains('open');
+        items.forEach(function (other) {
+          other.classList.remove('open');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+        }
+      });
+    });
+  })();
+</script>
+
+</body>
+  </html>
