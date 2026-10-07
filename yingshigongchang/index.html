@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>影视工厂-影视资源聚合与观影指南平台</title>
+<meta name="description" content="影视工厂是一个聚合影视资讯、剧集推荐、观影指南与资源分类的导航平台，帮助用户快速找到感兴趣的影视内容并了解观看方式。">
+<meta name="keywords" content="影视工厂,影视资源,影视推荐,剧集导航,观影指南,影视资讯">
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+<style>
+  :root{
+    --bg:#0e1015;
+    --bg-soft:#161a22;
+    --card:#1c212c;
+    --card-hover:#232a37;
+    --line:#2a3140;
+    --text:#e8ecf3;
+    --text-dim:#9aa4b5;
+    --accent:#ff6a3d;
+    --accent-2:#ffb347;
+    --blue:#4a9eff;
+    --radius:14px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 20px;}
+
+  /* ---------- header ---------- */
+  .site-header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(14,16,21,.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .header-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    height:64px;
+  }
+  .logo{display:flex;align-items:center;gap:10px;font-size:20px;font-weight:800;letter-spacing:.5px;}
+  .logo-mark{
+    width:32px;height:32px;border-radius:9px;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    display:flex;align-items:center;justify-content:center;
+    font-size:16px;color:#1a1208;font-weight:900;
+  }
+  .logo span{background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .main-nav{display:flex;gap:6px;align-items:center;}
+  .main-nav a{
+    padding:8px 14px;border-radius:9px;font-size:14.5px;color:var(--text-dim);
+    transition:.2s;
+  }
+  .main-nav a:hover,.main-nav a.active{color:#fff;background:var(--card);}
+  .nav-toggle{
+    display:none;background:none;border:1px solid var(--line);color:var(--text);
+    border-radius:9px;padding:6px 11px;font-size:18px;cursor:pointer;
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;overflow:hidden;
+    background:
+      radial-gradient(900px 420px at 12% -10%,rgba(255,106,61,.22),transparent 65%),
+      radial-gradient(700px 400px at 92% 0%,rgba(74,158,255,.16),transparent 60%),
+      var(--bg-soft);
+    border-bottom:1px solid var(--line);
+  }
+  .hero-inner{
+    display:grid;grid-template-columns:1.15fr .85fr;gap:48px;
+    padding:64px 0 60px;align-items:center;
+  }
+  .hero-tag{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:13px;color:var(--accent-2);
+    border:1px solid rgba(255,179,71,.35);
+    background:rgba(255,179,71,.08);
+    padding:5px 12px;border-radius:999px;margin-bottom:20px;
+  }
+  .hero h1{
+    font-size:44px;line-height:1.25;font-weight:900;letter-spacing:-.5px;
+    margin-bottom:18px;
+  }
+  .hero h1 em{
+    font-style:normal;
+    background:linear-gradient(90deg,var(--accent),var(--accent-2));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero p{color:var(--text-dim);font-size:16.5px;max-width:560px;margin-bottom:28px;}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:12px 24px;border-radius:11px;font-size:15px;font-weight:600;
+    cursor:pointer;border:none;transition:.22s;
+  }
+  .btn-primary{
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    color:#1a1208;
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(255,106,61,.32);}
+  .btn-ghost{
+    background:transparent;color:var(--text);border:1px solid var(--line);
+  }
+  .btn-ghost:hover{background:var(--card);border-color:#3a4356;}
+
+  .hero-panel{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:22px;
+  }
+  .hero-panel h3{font-size:15px;color:var(--text-dim);font-weight:600;margin-bottom:16px;letter-spacing:.5px;}
+  .rank-item{
+    display:flex;align-items:center;gap:14px;
+    padding:11px 0;border-bottom:1px dashed var(--line);
+  }
+  .rank-item:last-child{border-bottom:none;}
+  .rank-num{
+    width:26px;height:26px;flex:0 0 26px;border-radius:8px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:13px;font-weight:800;background:var(--bg-soft);color:var(--text-dim);
+  }
+  .rank-item:nth-child(2) .rank-num{background:linear-gradient(135deg,#ff6a3d,#ffb347);color:#1a1208;}
+  .rank-item:nth-child(3) .rank-num{background:linear-gradient(135deg,#4a9eff,#7cc0ff);color:#0b1220;}
+  .rank-item:nth-child(4) .rank-num{background:linear-gradient(135deg,#8b7bff,#b3a6ff);color:#0b1220;}
+  .rank-info{flex:1;min-width:0;}
+  .rank-info strong{display:block;font-size:14.5px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .rank-info span{font-size:12.5px;color:var(--text-dim);}
+  .rank-score{font-size:13px;color:var(--accent-2);font-weight:700;}
+
+  /* ---------- section base ---------- */
+  section{padding:56px 0;}
+  .sec-head{
+    display:flex;align-items:flex-end;justify-content:space-between;
+    gap:20px;margin-bottom:28px;flex-wrap:wrap;
+  }
+  .sec-head h2{font-size:26px;font-weight:800;letter-spacing:-.3px;}
+  .sec-head h2::after{
+    content:"";display:block;width:42px;height:3px;border-radius:3px;margin-top:10px;
+    background:linear-gradient(90deg,var(--accent),var(--accent-2));
+  }
+  .sec-head p{color:var(--text-dim);font-size:14.5px;max-width:560px;}
+
+  /* ---------- category grid ---------- */
+  .cat-grid{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;
+  }
+  .cat-card{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:20px 18px;transition:.22s;
+  }
+  .cat-card:hover{background:var(--card-hover);border-color:#3a4356;transform:translateY(-3px);}
+  .cat-icon{
+    width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;
+    font-size:19px;margin-bottom:14px;
+    background:rgba(255,106,61,.14);color:var(--accent);
+  }
+  .cat-card:nth-child(2n) .cat-icon{background:rgba(74,158,255,.14);color:var(--blue);}
+  .cat-card:nth-child(3n) .cat-icon{background:rgba(139,123,255,.16);color:#a99bff;}
+  .cat-card:nth-child(5n) .cat-icon{background:rgba(255,179,71,.14);color:var(--accent-2);}
+  .cat-card h3{font-size:16px;font-weight:700;margin-bottom:6px;}
+  .cat-card p{font-size:13.5px;color:var(--text-dim);line-height:1.6;}
+
+  /* ---------- feature / picks ---------- */
+  .picks{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:20px;}
+  .pick{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    overflow:hidden;transition:.22s;display:flex;flex-direction:column;
+  }
+  .pick:hover{border-color:#3a4356;transform:translateY(-4px);box-shadow:0 14px 34px rgba(0,0,0,.35);}
+  .pick-cover{
+    height:132px;position:relative;
+    display:flex;align-items:flex-end;padding:14px;
+    background:linear-gradient(135deg,#2a3140,#1a1f29);
+  }
+  .pick:nth-child(1) .pick-cover{background:linear-gradient(135deg,#5b2b1a,#2a1a12);}
+  .pick:nth-child(2) .pick-cover{background:linear-gradient(135deg,#1a3352,#121b28);}
+  .pick:nth-child(3) .pick-cover{background:linear-gradient(135deg,#3a2a5c,#1c1628);}
+  .pick:nth-child(4) .pick-cover{background:linear-gradient(135deg,#4d3a16,#241d0e);}
+  .pick:nth-child(5) .pick-cover{background:linear-gradient(135deg,#1d4a3e,#10241f);}
+  .pick:nth-child(6) .pick-cover{background:linear-gradient(135deg,#4a1f33,#241018);}
+  .pick-badge{
+    position:absolute;top:12px;left:12px;
+    font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;
+    background:rgba(0,0,0,.45);color:#fff;backdrop-filter:blur(4px);
+  }
+  .pick-cover strong{font-size:17px;font-weight:800;text-shadow:0 2px 8px rgba(0,0,0,.5);}
+  .pick-body{padding:16px 18px 18px;flex:1;display:flex;flex-direction:column;}
+  .pick-meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;}
+  .chip{
+    font-size:12px;padding:3px 9px;border-radius:6px;
+    background:var(--bg-soft);color:var(--text-dim);border:1px solid var(--line);
+  }
+  .pick-body p{font-size:13.8px;color:var(--text-dim);flex:1;margin-bottom:14px;}
+  .pick-link{font-size:13.5px;color:var(--accent-2);font-weight:600;}
+  .pick-link:hover{color:var(--accent);}
+
+  /* ---------- guide ---------- */
+  .guide{background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .guide-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;}
+  .guide-item{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:24px 22px;
+  }
+  .guide-item .step{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:34px;height:34px;border-radius:10px;font-weight:800;font-size:15px;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#1a1208;
+    margin-bottom:14px;
+  }
+  .guide-item h3{font-size:16.5px;font-weight:700;margin-bottom:8px;}
+  .guide-item p{font-size:14px;color:var(--text-dim);}
+
+  /* ---------- news list ---------- */
+  .news-layout{display:grid;grid-template-columns:1.6fr 1fr;gap:26px;}
+  .news-main{display:flex;flex-direction:column;gap:14px;}
+  .news-row{
+    display:flex;gap:16px;align-items:flex-start;
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:18px 20px;transition:.2s;
+  }
+  .news-row:hover{background:var(--card-hover);border-color:#3a4356;}
+  .news-date{
+    flex:0 0 62px;text-align:center;border-right:1px solid var(--line);padding-right:12px;
+  }
+  .news-date b{display:block;font-size:19px;font-weight:800;color:var(--accent-2);}
+  .news-date span{font-size:12px;color:var(--text-dim);}
+  .news-row h3{font-size:15.5px;font-weight:700;margin-bottom:5px;}
+  .news-row p{font-size:13.6px;color:var(--text-dim);}
+  .side-box{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px;
+  }
+  .side-box h3{font-size:16px;font-weight:700;margin-bottom:16px;}
+  .side-list{list-style:none;}
+  .side-list li{
+    padding:10px 0;border-bottom:1px dashed var(--line);font-size:14px;color:var(--text-dim);
+    display:flex;gap:10px;
+  }
+  .side-list li:last-child{border-bottom:none;}
+  .side-list li b{color:var(--accent);font-weight:700;}
+
+  /* ---------- faq ---------- */
+  .faq{max-width:860px;margin:0 auto;}
+  .faq-item{
+    border:1px solid var(--line);border-radius:var(--radius);
+    background:var(--card);margin-bottom:12px;overflow:hidden;
+  }
+  .faq-q{
+    width:100%;text-align:left;background:none;border:none;color:var(--text);
+    font-size:15.5px;font-weight:600;padding:18px 22px;cursor:pointer;
+    display:flex;justify-content:space-between;align-items:center;gap:16px;
+    font-family:inherit;
+  }
+  .faq-q::after{
+    content:"+";font-size:20px;color:var(--accent-2);font-weight:400;transition:.25s;
+  }
+  .faq-item.open .faq-q::after{transform:rotate(45deg);}
+  .faq-a{
+    max-height:0;overflow:hidden;transition:max-height .3s ease;
+    font-size:14.2px;color:var(--text-dim);
+  }
+  .faq-a div{padding:0 22px 20px;}
+  .faq-item.open .faq-a{max-height:320px;}
+
+  /* ---------- footer ---------- */
+  .site-footer{
+    background:var(--bg-soft);border-top:1px solid var(--line);
+    padding:46px 0 26px;margin-top:20px;
+  }
+  .footer-grid{
+    display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:34px;margin-bottom:34px;
+  }
+  .footer-grid h4{font-size:15px;font-weight:700;margin-bottom:14px;}
+  .footer-grid p,.footer-grid li{font-size:13.6px;color:var(--text-dim);}
+  .footer-grid ul{list-style:none;}
+  .footer-grid li{margin-bottom:9px;}
+  .footer-grid li a:hover{color:var(--accent-2);}
+  .footer-bottom{
+    border-top:1px solid var(--line);padding-top:20px;
+    display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+    font-size:13px;color:var(--text-dim);
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width:980px){
+    .hero-inner{grid-template-columns:1fr;gap:34px;padding:46px 0 44px;}
+    .hero h1{font-size:34px;}
+    .news-layout{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:720px){
+    .main-nav{
+      position:absolute;top:64px;left:0;right:0;
+      background:var(--bg-soft);border-bottom:1px solid var(--line);
+      flex-direction:column;align-items:stretch;padding:10px 16px 16px;
+      display:none;
+    }
+    .main-nav.open{display:flex;}
+    .main-nav a{padding:11px 12px;}
+    .nav-toggle{display:block;}
+    .hero h1{font-size:28px;}
+    .hero p{font-size:15px;}
+    .sec-head h2{font-size:22px;}
+    section{padding:42px 0;}
+    .news-row{flex-direction:column;gap:10px;}
+    .news-date{
+      flex:none;border-right:none;border-bottom:1px solid var(--line);
+      padding:0 0 8px;text-align:left;display:flex;align-items:baseline;gap:8px;
+    }
+  }
+  @media (max-width:520px){
+    .footer-grid{grid-template-columns:1fr;gap:24px;}
+    .hero-actions .btn{width:100%;justify-content:center;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="logo" href="#top">
+      <span class="logo-mark">影</span>
+      <span>影视工厂</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="展开导航">☰</button>
+    <nav class="main-nav" id="mainNav">
+      <a href="#categories" class="active">分类导航</a>
+      <a href="#picks">精选推荐</a>
+      <a href="#guide">观影指南</a>
+      <a href="#news">行业动态</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div>
+        <span class="hero-tag">◆ 影视内容聚合与观影参考</span>
+        <h1>在<em>影视工厂</em>，<br>把想看的内容一次理清楚</h1>
+        <p>影视工厂是一个面向普通观众的影视内容导航与信息整理平台。这里按类型、地区和题材梳理电影、剧集、纪录片与综艺，提供剧情简介、适看人群提示和正规观看渠道说明，帮助你在众多选择中更快找到适合自己的那一部。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#categories">浏览分类导航</a>
+          <a class="btn btn-ghost" href="#guide">查看观影指南</a>
+        </div>
+      </div>
+
+      <aside class="hero-panel" aria-label="本周关注榜">
+        <h3>本周观众关注方向</h3>
+        <div class="rank-item">
+          <span class="rank-num">1</span>
+          <div class="rank-info">
+            <strong>现实主义题材剧集</strong>
+            <span>贴近生活 · 适合家庭共同观看</span>
+          </div>
+          <span class="rank-score">热度高</span>
+        </div>
+        <div class="rank-item">
+          <span class="rank-num">2</span>
+          <div class="rank-info">
+            <strong>国产悬疑与犯罪片</strong>
+            <span>节奏紧凑 · 建议成年观众</span>
+          </div>
+          <span class="rank-score">讨论多</span>
+        </div>
+        <div class="rank-item">
+          <span class="rank-num">3</span>
+          <div class="rank-info">
+            <strong>自然与人文纪录片</strong>
+            <span>知识性强 · 全年龄适宜</span>
+          </div>
+          <span class="rank-score">口碑稳</span>
+        </div>
+        <div class="rank-item">
+          <span class="rank-num">4</span>
+          <div class="rank-info">
+            <strong>经典老片重映</strong>
+            <span>影史价值 · 适合影迷回顾</span>
+          </div>
+          <span class="rank-score">关注升</span>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section id="categories">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2>影视分类导航</h2>
+          <p>按内容形态和题材划分入口，先确定想看什么类型，再决定具体片目，比漫无目的地翻列表更有效率。</p>
+        </div>
+      </div>
+      <div class="cat-grid">
+        <article class="cat-card">
+          <div class="cat-icon">🎬</div>
+          <h3>院线电影</h3>
+          <p>以影院上映为主的剧情、动作、科幻与文艺片，关注上映节奏与版本差异。</p>
+        </article>
+        <article class="cat-card">
+          <div class="cat-icon">📺</div>
+          <h3>连续剧集</h3>
+          <p>国产剧、港台剧与海外剧，按更新方式和集数长短分类，方便安排追剧时间。</p>
+        </article>
+        <article class="cat-card">
+          <div class="cat-icon">🌏</div>
+          <h3>海外影视</h3>
+          <p>欧美、日韩及东南亚作品，注意配音与字幕版本的差异，选择适合自己的观看方式。</p>
+        </article>
+        <article class="cat-card">
+          <div class="cat-icon">🎞️</div>
+          <h3>纪录片</h3>
+          <p>自然、历史、科技与社会观察类内容，信息密度高，适合作为知识补充。</p>
+        </article>
+        <article class="cat-card">
+          <div class="cat-icon">🎤</div>
+          <h3>综艺节目</h3>
+          <p>竞技、真人秀、访谈与音乐类节目，节奏轻快，适合碎片时间观看。</p>
+        </article>
+        <article class="cat-card">
+          <div class="cat-icon">🧸</div>
+          <h3>动画与少儿</h3>
+          <p>动画长片与少儿向剧集，家长可先了解内容分级再决定是否适合孩子观看。</p>
+        </article>
+        <article class="cat-card">
+          <div class="cat-icon">🕵️</div>
+          <h3>悬疑推理</h3>
+          <p>犯罪、推理与心理惊悚类作品，剧情反转较多，建议避免剧透后再观看。</p>
+        </article>
+        <article class="cat-card">
+          <div class="cat-icon">💞</div>
+          <h3>爱情与都市</h3>
+          <p>情感、都市生活与成长题材，节奏相对舒缓，适合放松时观看。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PICKS -->
+  <section id="picks">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2>精选内容推荐</h2>
+          <p>以下推荐按内容类型和观看场景整理，仅作选片参考，具体片目请以各正规平台的实际上架情况为准。</p>
+        </div>
+      </div>
+      <div class="picks">
+        <article class="pick">
+          <div class="pick-cover"><span class="pick-badge">剧集</span><strong>现实主义长剧</strong></div>
+          <div class="pick-body">
+            <div class="pick-meta"><span class="chip">家庭</span><span class="chip">慢节奏</span></div>
+            <p>人物关系扎实、生活细节丰富，适合与家人一起观看并展开讨论，单集时长较长，建议预留完整时间。</p>
+            <a class="pick-link" href="#guide">了解观看建议 →</a>
+          </div>
+        </article>
+        <article class="pick">
+          <div class="pick-cover"><span class="pick-badge">电影</span><strong>科幻与未来想象</strong></div>
+          <div class="pick-body">
+            <div class="pick-meta"><span class="chip">科幻</span><span class="chip">视效</span></div>
+            <p>世界观设定较为复杂，建议在屏幕较大、音效较好的环境下观看，能更好理解叙事结构。</p>
+            <a class="pick-link" href="#guide">了解观看建议 →</a>
+          </div>
+        </article>
+        <article class="pick">
+          <div class="pick-cover"><span class="pick-badge">悬疑</span><strong>犯罪推理短剧</strong></div>
+          <div class="pick-body">
+            <div class="pick-meta"><span class="chip">悬疑</span><span class="chip">强节奏</span></div>
+            <p>线索密集、反转较多，适合连续观看。内容涉及案件描写，未成年人建议在家长陪同下观看。</p>
+            <a class="pick-link" href="#guide">了解观看建议 →</a>
+          </div>
+        </article>
+        <article class="pick">
+          <div class="pick-cover"><span class="pick-badge">纪录片</span><strong>自然地理纪实</strong></div>
+          <div class="pick-body">
+            <div class="pick-meta"><span class="chip">科普</span><span class="chip">全年龄</span></div>
+            <p>画面与解说并重，适合作为通识内容观看，也常被用于课堂和家庭科普场景。</p>
+            <a class="pick-link" href="#guide">了解观看建议 →</a>
+          </div>
+        </article>
+        <article class="pick">
+          <div class="pick-cover"><span class="pick-badge">综艺</span><strong>生活观察类节目</strong></div>
+          <div class="pick-body">
+            <div class="pick-meta"><span class="chip">轻松</span><span class="chip">碎片时间</span></div>
+            <p>单集独立性强，不需要连续追看，适合在通勤或休息时作为放松内容。</p>
+            <a class="pick-link" href="#guide">了解观看建议 →</a>
+          </div>
+        </article>
+        <article class="pick">
+          <div class="pick-cover"><span class="pick-badge">经典</span><strong>影史老片回顾</strong></div>
+          <div class="pick-body">
+            <div class="pick-meta"><span class="chip">经典</span><span class="chip">影迷向</span></div>
+            <p>叙事节奏与当下作品差异较大，建议先了解创作背景，再进入正片，理解会更完整。</p>
+            <a class="pick-link" href="#guide">了解观看建议 →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUIDE -->
+  <section class="guide" id="guide">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2>观影前中后的实用指南</h2>
+          <p>选片只是第一步。了解渠道、版本和观看节奏，能明显提升实际观影体验。</p>
+        </div>
+      </div>
+      <div class="guide-grid">
+        <article class="guide-item">
+          <span class="step">1</span>
+          <h3>先确认正规观看渠道</h3>
+          <p>优先选择有版权授权的视频平台、影院或电视台播出渠道。来源不明的资源往往存在画质差、字幕错误甚至安全风险，不建议使用。</p>
+        </article>
+        <article class="guide-item">
+          <span class="step">2</span>
+          <h3>留意版本与分级信息</h3>
+          <p>同一部作品可能存在院线版、导演剪辑版、配音版和字幕版等差异。观看前先确认版本，并留意内容是否适合儿童或未成年人。</p>
+        </article>
+        <article class="guide-item">
+          <span class="step">3</span>
+          <h3>合理安排观看节奏</h3>
+          <p>长剧集建议设定每日观看量，避免连续熬夜。悬疑类作品可以适当暂停整理线索，比一口气刷完更容易理解剧情。</p>
+        </article>
+        <article class="guide-item">
+          <span class="step">4</span>
+          <h3>记录与分享感受</h3>
+          <p>看完后写下简短评价，记录喜欢的角色或镜头，既方便日后回顾，也能在交流中获得新的理解角度。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWS -->
+  <section id="news">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2>影视行业动态与观察</h2>
+          <p>关注内容生产、播出方式与观众习惯的变化，有助于理解当下影视内容为何呈现这样的面貌。</p>
+        </div>
+      </div>
+      <div class="news-layout">
+        <div class="news-main">
+          <article class="news-row">
+            <div class="news-date"><b>趋势</b><span>内容形态</span></div>
+            <div>
+              <h3>短剧集与长剧集并行发展</h3>
+              <p>近年来剧集长度呈现分化：一部分作品追求紧凑叙事，单季集数减少；另一部分仍以长篇方式展开人物群像。观众可根据可支配时间选择。</p>
+            </div>
+          </article>
+          <article class="news-row">
+            <div class="news-date"><b>渠道</b><span>观看方式</span></div>
+            <div>
+              <h3>多终端观看成为常态</h3>
+              <p>手机、平板、电视和投影设备之间的切换越来越普遍。同一账号在不同设备上的清晰度与进度同步情况，是选择平台时的实际考量点。</p>
+            </div>
+          </article>
+          <article class="news-row">
+            <div class="news-date"><b>题材</b><span>创作方向</span></div>
+            <div>
+              <h3>现实题材与类型融合受到关注</h3>
+              <p>不少作品尝试把现实生活议题与悬疑、喜剧等类型元素结合，在可看性和表达深度之间寻找平衡，这类内容也更容易引发讨论。</p>
+            </div>
+          </article>
+          <article class="news-row">
+            <div class="news-date"><b>技术</b><span>制作层面</span></div>
+            <div>
+              <h3>虚拟制作与后期技术持续普及</h3>
+              <p>虚拟拍摄、实时渲染等技术在部分作品中得到应用，改变了传统拍摄流程。对观众而言，直观感受是画面风格和场景呈现更加多样。</p>
+            </div>
+          </article>
+        </div>
+        <aside class="side-box">
+          <h3>选片时值得关注的信息</h3>
+          <ul class="side-list">
+            <li><b>·</b><span>主创团队与过往作品风格</span></li>
+            <li><b>·</b><span>题材是否与自身接受度匹配</span></li>
+            <li><b>·</b><span>单集时长与总集数</span></li>
+            <li><b>·</b><span>是否含有强刺激或敏感内容</span></li>
+            <li><b>·</b><span>正规平台的上架与更新情况</span></li>
+            <li><b>·</b><span>配音、字幕等语言版本选择</span></li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2>常见问题</h2>
+          <p>关于影视工厂平台定位和日常选片，这里整理了几个被问得较多的问题。</p>
+        </div>
+      </div>
+      <div class="faq">
+        <div class="faq-item">
+          <button class="faq-q">影视工厂提供在线播放吗？</button>
+          <div class="faq-a"><div>影视工厂的定位是影视内容导航与信息整理，主要提供分类入口、内容简介和观看建议，不直接存储或提供影视文件。观看请前往有版权授权的正规平台。</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">怎样判断一部作品是否适合孩子观看？</button>
+          <div class="faq-a"><div>可以先查看作品的题材标签和内容简介，关注是否涉及暴力、惊悚或成人议题。部分平台会标注适龄提示，家长也可以先自行试看前几分钟再做判断。</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">为什么同一部剧在不同平台看到的集数不一样？</button>
+          <div class="faq-a"><div>这通常与版本剪辑、播出安排和授权范围有关。不同地区或不同平台可能上线不同版本，集数、时长甚至结局呈现都可能存在差异，属于正常现象。</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">如何避免被剧透？</button>
+          <div class="faq-a"><div>在观看完成前，尽量少搜索剧情解析和结局讨论，关闭相关推荐话题。如果需要在平台上找资源，直接使用名称检索，比浏览推荐流更不容易被剧透。</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">分类导航里的内容会持续更新吗？</button>
+          <div class="faq-a"><div>分类结构和推荐方向会随着内容生态变化进行调整，具体片目的上架、下架与更新节奏由各正规平台决定，建议以平台页面显示的信息为准。</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>关于影视工厂</h4>
+        <p>影视工厂是一个影视内容导航与信息整理平台，按类型、题材和观看场景帮助用户梳理选择，提供简介、适看提示与正规观看渠道说明。</p>
+      </div>
+      <div>
+        <h4>内容导航</h4>
+        <ul>
+          <li><a href="#categories">分类导航</a></li>
+          <li><a href="#picks">精选推荐</a></li>
+          <li><a href="#guide">观影指南</a></li>
+          <li><a href="#news">行业动态</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>使用帮助</h4>
+        <ul>
+          <li><a href="#faq">常见问题</a></li>
+          <li><a href="#guide">版本与分级说明</a></li>
+          <li><a href="#guide">观看渠道建议</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>版权提示</h4>
+        <p>本站不提供影视文件的存储与播放服务，所有内容信息仅供选片参考。请通过正规授权平台观看影视作品，尊重创作者权益。</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 影视工厂 · 影视内容导航与观影参考</span>
+      <span>页面信息以各正规平台实际展示为准</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var toggle = document.getElementById('navToggle');
+    var nav = document.getElementById('mainNav');
+    if(toggle && nav){
+      toggle.addEventListener('click', function(){
+        nav.classList.toggle('open');
+      });
+      nav.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){
+          if(window.innerWidth <= 720){ nav.classList.remove('open'); }
+        });
+      });
+    }
+
+    var items = document.querySelectorAll('.faq-item');
+    items.forEach(function(item){
+      var btn = item.querySelector('.faq-q');
+      btn.addEventListener('click', function(){
+        var isOpen = item.classList.contains('open');
+        items.forEach(function(i){ i.classList.remove('open'); });
+        if(!isOpen){ item.classList.add('open'); }
+      });
+    });
+  })();
+</script>
+
+</body>
+  </html>
