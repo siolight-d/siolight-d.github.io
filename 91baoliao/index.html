@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>91爆料网-网络热点线索与信息核实指南</title>
+<meta name="description" content="91爆料网聚焦网络热点线索整理与信息核实方法，提供爆料投稿规范、真假辨别思路、热门话题分类及常见问题解答，帮助读者理性看待网络传闻。">
+<meta name="keywords" content="91爆料网,网络爆料,热点线索,信息核实,投稿指南,真假辨别">
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --bg: #0f1115;
+  --bg-soft: #161a22;
+  --panel: #1c212c;
+  --panel-2: #232936;
+  --line: #2e3546;
+  --text: #e8ecf4;
+  --text-dim: #9aa4b8;
+  --accent: #ff5a3c;
+  --accent-2: #ffb03a;
+  --blue: #4d8dff;
+  --green: #35c98b;
+  --radius: 14px;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+.wrap {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 顶栏 */
+.topbar {
+  background: linear-gradient(90deg, #1a1f2b, #14171f);
+  border-bottom: 1px solid var(--line);
+  font-size: 13px;
+  color: var(--text-dim);
+}
+.topbar .wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 38px;
+  gap: 12px;
+}
+.topbar .dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+  margin-right: 7px;
+  vertical-align: middle;
+}
+.topbar nav a {
+  margin-left: 16px;
+  color: var(--text-dim);
+  transition: color .2s;
+}
+.topbar nav a:hover {
+  color: var(--accent-2);
+}
+
+/* 页眉 */
+header.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(15, 17, 21, 0.94);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+  gap: 20px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: .5px;
+  white-space: nowrap;
+}
+.logo .mark {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 900;
+  color: #1a1005;
+}
+.logo span.sub {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-dim);
+  letter-spacing: 0;
+  margin-left: 2px;
+}
+.main-nav {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.main-nav a {
+  padding: 8px 14px;
+  border-radius: 9px;
+  font-size: 14.5px;
+  color: var(--text-dim);
+  transition: background .2s, color .2s;
+}
+.main-nav a:hover,
+.main-nav a.active {
+  background: var(--panel-2);
+  color: var(--text);
+}
+.header-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #1a1005;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 9px 18px;
+  border-radius: 10px;
+  white-space: nowrap;
+  transition: transform .2s, box-shadow .2s;
+}
+.header-cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(255, 90, 60, .3);
+}
+
+/* 首屏 */
+.hero {
+  padding: 54px 0 44px;
+  background:
+    radial-gradient(700px 320px at 12% -10%, rgba(255, 90, 60, .16), transparent 60%),
+    radial-gradient(600px 300px at 90% 0%, rgba(77, 141, 255, .14), transparent 60%);
+  border-bottom: 1px solid var(--line);
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+.hero h1 {
+  font-size: 38px;
+  line-height: 1.3;
+  font-weight: 800;
+  letter-spacing: .5px;
+  margin-bottom: 16px;
+}
+.hero h1 em {
+  font-style: normal;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.hero p.lead {
+  color: var(--text-dim);
+  font-size: 16px;
+  max-width: 620px;
+  margin-bottom: 26px;
+}
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 12px 24px;
+  border-radius: 11px;
+  font-size: 15px;
+  font-weight: 600;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform .2s, background .2s, border-color .2s;
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #1a1005;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+}
+.btn-ghost {
+  background: transparent;
+  border-color: var(--line);
+  color: var(--text);
+}
+.btn-ghost:hover {
+  background: var(--panel-2);
+  border-color: #3c465c;
+}
+.hero-side {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px;
+}
+.hero-side h3 {
+  font-size: 15px;
+  color: var(--accent-2);
+  margin-bottom: 14px;
+  letter-spacing: .5px;
+}
+.hero-side ul {
+  list-style: none;
+}
+.hero-side li {
+  display: flex;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--text-dim);
+  padding: 9px 0;
+  border-bottom: 1px dashed var(--line);
+}
+.hero-side li:last-child {
+  border-bottom: none;
+}
+.hero-side li b {
+  color: var(--text);
+  font-weight: 600;
+}
+.hero-side .tag {
+  flex-shrink: 0;
+  font-size: 12px;
+  padding: 1px 8px;
+  border-radius: 6px;
+  background: rgba(255, 90, 60, .15);
+  color: var(--accent);
+  height: 22px;
+  line-height: 20px;
+}
+
+/* 通用区块 */
+section.block {
+  padding: 52px 0;
+  border-bottom: 1px solid var(--line);
+}
+section.block:last-of-type {
+  border-bottom: none;
+}
+.sec-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 26px;
+  flex-wrap: wrap;
+}
+.sec-head h2 {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: .5px;
+  position: relative;
+  padding-left: 14px;
+}
+.sec-head h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 4px;
+  border-radius: 3px;
+  background: linear-gradient(180deg, var(--accent), var(--accent-2));
+}
+.sec-head p {
+  color: var(--text-dim);
+  font-size: 14px;
+  max-width: 560px;
+}
+
+/* 分类卡片 */
+.cat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+.cat-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px;
+  transition: transform .2s, border-color .2s;
+}
+.cat-card:hover {
+  transform: translateY(-3px);
+  border-color: #3d4760;
+}
+.cat-card .ico {
+  width: 42px;
+  height: 42px;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 19px;
+  margin-bottom: 13px;
+  background: var(--panel-2);
+}
+.cat-card h3 {
+  font-size: 16.5px;
+  margin-bottom: 8px;
+}
+.cat-card p {
+  font-size: 13.5px;
+  color: var(--text-dim);
+  margin-bottom: 12px;
+}
+.cat-card .meta {
+  font-size: 12.5px;
+  color: var(--accent-2);
+}
+
+/* 热点列表 */
+.hot-layout {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 26px;
+  align-items: start;
+}
+.hot-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.hot-item {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 16px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  transition: border-color .2s, background .2s;
+}
+.hot-item:hover {
+  border-color: #3d4760;
+  background: var(--panel-2);
+}
+.hot-item .rank {
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--accent);
+  opacity: .85;
+  text-align: center;
+  line-height: 1.2;
+}
+.hot-item .rank.n2 { color: var(--accent-2); }
+.hot-item .rank.n3 { color: var(--blue); }
+.hot-item .rank.nx { color: var(--text-dim); font-size: 18px; }
+.hot-item h3 {
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+.hot-item p {
+  font-size: 13.5px;
+  color: var(--text-dim);
+}
+.hot-item .labels {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.hot-item .labels span {
+  font-size: 12px;
+  color: var(--text-dim);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 1px 8px;
+}
+
+/* 侧栏 */
+.side-panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 18px;
+}
+.side-panel h3 {
+  font-size: 15.5px;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+.side-panel ul {
+  list-style: none;
+}
+.side-panel li {
+  font-size: 13.8px;
+  color: var(--text-dim);
+  padding: 8px 0;
+  border-bottom: 1px dashed var(--line);
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.side-panel li:last-child {
+  border-bottom: none;
+}
+.side-panel li strong {
+  color: var(--text);
+  font-weight: 600;
+}
+.side-panel .num {
+  color: var(--accent-2);
+  font-size: 12.5px;
+  flex-shrink: 0;
+}
+.side-note {
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.8;
+}
+
+/* 步骤 */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 16px;
+  counter-reset: step;
+}
+.step {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px 20px;
+  position: relative;
+}
+.step::before {
+  counter-increment: step;
+  content: "0" counter(step);
+  font-size: 26px;
+  font-weight: 900;
+  color: var(--panel-2);
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  letter-spacing: 1px;
+}
+.step h3 {
+  font-size: 16px;
+  margin-bottom: 9px;
+  color: var(--accent-2);
+}
+.step p {
+  font-size: 13.6px;
+  color: var(--text-dim);
+}
+
+/* 指南两栏 */
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+.guide-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px;
+}
+.guide-card h3 {
+  font-size: 16.5px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.guide-card h3 .bar {
+  width: 4px;
+  height: 16px;
+  border-radius: 2px;
+  background: var(--accent);
+}
+.guide-card ul {
+  list-style: none;
+}
+.guide-card li {
+  font-size: 13.8px;
+  color: var(--text-dim);
+  padding: 7px 0 7px 16px;
+  position: relative;
+}
+.guide-card li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 15px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-2);
+  opacity: .8;
+}
+.guide-card p {
+  font-size: 13.8px;
+  color: var(--text-dim);
+}
+
+/* 投稿规范表 */
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 620px;
+}
+th, td {
+  text-align: left;
+  padding: 13px 18px;
+  font-size: 13.8px;
+  border-bottom: 1px solid var(--line);
+}
+th {
+  background: var(--panel-2);
+  color: var(--text);
+  font-weight: 600;
+  white-space: nowrap;
+}
+td {
+  color: var(--text-dim);
+}
+tr:last-child td {
+  border-bottom: none;
+}
+td b {
+  color: var(--text);
+  font-weight: 600;
+}
+.ok {
+  color: var(--green);
+}
+.no {
+  color: var(--accent);
+}
+
+/* FAQ */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 900px;
+}
+.faq-item {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.faq-item summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 16px 20px;
+  font-size: 15.5px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+}
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+.faq-item summary::after {
+  content: "+";
+  font-size: 20px;
+  color: var(--accent-2);
+  font-weight: 400;
+  flex-shrink: 0;
+  transition: transform .2s;
+}
+.faq-item[open] summary::after {
+  transform: rotate(45deg);
+}
+.faq-item .ans {
+  padding: 0 20px 18px;
+  font-size: 14px;
+  color: var(--text-dim);
+  border-top: 1px dashed var(--line);
+  padding-top: 14px;
+}
+
+/* 提示条 */
+.notice {
+  margin-top: 26px;
+  border: 1px solid rgba(255, 176, 58, .35);
+  background: rgba(255, 176, 58, .08);
+  border-radius: var(--radius);
+  padding: 18px 22px;
+  font-size: 13.8px;
+  color: #f2d9a8;
+}
+.notice b {
+  color: var(--accent-2);
+}
+
+/* 页脚 */
+footer.site-footer {
+  background: #0b0d11;
+  border-top: 1px solid var(--line);
+  padding: 44px 0 26px;
+  margin-top: 0;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 32px;
+}
+.footer-brand .logo {
+  margin-bottom: 12px;
+  font-size: 19px;
+}
+.footer-brand p {
+  font-size: 13.4px;
+  color: var(--text-dim);
+  max-width: 340px;
+}
+.footer-col h4 {
+  font-size: 14.5px;
+  margin-bottom: 14px;
+  color: var(--text);
+}
+.footer-col a {
+  display: block;
+  font-size: 13.4px;
+  color: var(--text-dim);
+  padding: 5px 0;
+  transition: color .2s;
+}
+.footer-col a:hover {
+  color: var(--accent-2);
+}
+.footer-bottom {
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+  font-size: 12.8px;
+  color: var(--text-dim);
+}
+
+/* 响应式 */
+@media (max-width: 980px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+  .hot-layout {
+    grid-template-columns: 1fr;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .hero h1 {
+    font-size: 31px;
+  }
+}
+@media (max-width: 720px) {
+  .main-nav {
+    display: none;
+  }
+  .header-inner {
+    height: 60px;
+  }
+  .topbar nav {
+    display: none;
+  }
+  .hero {
+    padding: 38px 0 34px;
+  }
+  .hero h1 {
+    font-size: 26px;
+  }
+  .hero p.lead {
+    font-size: 15px;
+  }
+  section.block {
+    padding: 40px 0;
+  }
+  .sec-head h2 {
+    font-size: 20px;
+  }
+  .hot-item {
+    grid-template-columns: 40px 1fr;
+    padding: 16px;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .header-cta {
+    padding: 8px 13px;
+    font-size: 13px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- 顶栏 -->
+<div class="topbar">
+  <div class="wrap">
+    <span><span class="dot"></span>信息整理平台 · 内容以核实为准</span>
+    <nav>
+      <a href="#guide">投稿规范</a>
+      <a href="#verify">核实方法</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+  </div>
+</div>
+
+<!-- 页眉 -->
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="logo" href="#top">
+      <span class="mark">91</span>
+      爆料网<span class="sub">线索整理</span>
+    </a>
+    <nav class="main-nav">
+      <a href="#top" class="active">首页</a>
+      <a href="#category">话题分类</a>
+      <a href="#hot">热点线索</a>
+      <a href="#guide">投稿规范</a>
+      <a href="#verify">核实方法</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+    <a class="header-cta" href="#guide">了解投稿要求</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 首屏 -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>91爆料网：把网络线索<em>看清、看准、再判断</em></h1>
+        <p class="lead">
+          网络上的“爆料”每天都在出现，但真正有价值的是可追溯、可核对的信息。本站围绕热点线索的整理、分类与核实方法展开，帮助读者了解一条爆料从出现到判断的完整思路，而不是急着下结论。
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#hot">浏览热点线索</a>
+          <a class="btn btn-ghost" href="#verify">学习核实方法</a>
+        </div>
+      </div>
+      <aside class="hero-side">
+        <h3>阅读前先记住三件事</h3>
+        <ul>
+          <li><span class="tag">来源</span><b>先看出处</b>：没有明确来源的信息，只能当作传闻看待。</li>
+          <li><span class="tag">时间</span><b>再看时间</b>：旧内容被重新传播，是常见误判原因。</li>
+          <li><span class="tag">证据</span><b>后看证据</b>：截图、录音、文件都可能被编辑，需交叉比对。</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 话题分类 -->
+  <section class="block" id="category">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>话题分类</h2>
+        <p>按线索类型归类，方便快速定位自己关心的方向。分类只描述信息属性，不代表内容已被证实。</p>
+      </div>
+      <div class="cat-grid">
+        <article class="cat-card">
+          <div class="ico">🏙️</div>
+          <h3>社会民生线索</h3>
+          <p>涉及公共生活、消费纠纷、社区事务等日常话题的线索整理。</p>
+          <div class="meta">核实要点：当事人说法 + 官方回应</div>
+        </article>
+        <article class="cat-card">
+          <div class="ico">💼</div>
+          <h3>职场与企业话题</h3>
+          <p>招聘承诺、用工争议、企业经营相关传闻的梳理与背景补充。</p>
+          <div class="meta">核实要点：合同文本 + 公开登记信息</div>
+        </article>
+        <article class="cat-card">
+          <div class="ico">🛒</div>
+          <h3>消费与产品争议</h3>
+          <p>商品质量、售后体验、服务承诺类的用户反馈汇总。</p>
+          <div class="meta">核实要点：订单凭证 + 多方反馈</div>
+        </article>
+        <article class="cat-card">
+          <div class="ico">🌐</div>
+          <h3>网络流传内容</h3>
+          <p>社交平台热传的图片、视频、聊天记录等素材的来源追溯。</p>
+          <div class="meta">核实要点：原图检索 + 时间线还原</div>
+        </article>
+        <article class="cat-card">
+          <div class="ico">📚</div>
+          <h3>知识科普澄清</h3>
+          <p>针对常见误解、断章取义内容的背景说明与概念解释。</p>
+          <div class="meta">核实要点：原始文献 + 专业表述</div>
+        </article>
+        <article class="cat-card">
+          <div class="ico">🧭</div>
+          <h3>线索线索追踪</h3>
+          <p>对同一事件在不同阶段的说法变化进行对比记录。</p>
+          <div class="meta">核实要点：版本对比 + 更新记录</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 热点线索 -->
+  <section class="block" id="hot">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>热点线索观察</h2>
+        <p>以下为话题类型的示例性描述，用于说明常见的信息结构与核实角度，不指向任何具体事件或当事人。</p>
+      </div>
+      <div class="hot-layout">
+        <div class="hot-list">
+          <article class="hot-item">
+            <div class="rank">01</div>
+            <div>
+              <h3>截图类线索为什么最容易失真</h3>
+              <p>聊天记录截图可以裁剪、拼接、改名，单张图片很难独立成立。通常需要结合双方说法、时间戳、原始设备记录等多项材料交叉判断。</p>
+              <div class="labels"><span>素材鉴别</span><span>交叉比对</span></div>
+            </div>
+          </article>
+          <article class="hot-item">
+            <div class="rank n2">02</div>
+            <div>
+              <h3>“旧闻新传”的时间陷阱</h3>
+              <p>不少被当作新消息传播的内容，其实是多年前的旧事。查看首发时间、原文链接与后续进展，是避免误判的基础步骤。</p>
+              <div class="labels"><span>时间线</span><span>来源追溯</span></div>
+            </div>
+          </article>
+          <article class="hot-item">
+            <div class="rank n3">03</div>
+            <div>
+              <h3>只有一方说法时该怎么看</h3>
+              <p>单方陈述属于线索而非结论。阅读时应留意是否给出可验证细节、是否有回应渠道、是否存在明显利益关联。</p>
+              <div class="labels"><span>单方陈述</span><span>回应机制</span></div>
+            </div>
+          </article>
+          <article class="hot-item">
+            <div class="rank nx">04</div>
+            <div>
+              <h3>视频片段为何常被误读</h3>
+              <p>剪辑可以改变语境。判断视频时，关注拍摄时间、完整版本是否存在、画面外的前因后果是否被省略。</p>
+              <div class="labels"><span>视频语境</span><span>完整性</span></div>
+            </div>
+          </article>
+          <article class="hot-item">
+            <div class="rank nx">05</div>
+            <div>
+              <h3>匿名投稿的合理使用边界</h3>
+              <p>匿名可以保护投稿人，但也降低了信息可追溯性。合理的做法是保留关键证据链，同时对未经证实部分明确标注。</p>
+              <div class="labels"><span>匿名机制</span><span>证据链</span></div>
+            </div>
+          </article>
+          <article class="hot-item">
+            <div class="rank nx">06</div>
+            <div>
+              <h3>转发前值得做的三个动作</h3>
+              <p>查原始出处、查发布时间、查是否有后续更正。三步只需几分钟，却能显著减少传播错误信息的概率。</p>
+              <div class="labels"><span>传播责任</span><span>快速核查</span></div>
+            </div>
+          </article>
+        </div>
+
+        <aside>
+          <div class="side-panel">
+            <h3>线索判断速查</h3>
+            <ul>
+              <li><strong>有无原始出处</strong><span class="num">关键</span></li>
+              <li><strong>时间是否明确</strong><span class="num">关键</span></li>
+              <li><strong>是否只有单方说法</strong><span class="num">留意</span></li>
+              <li><strong>有无回应或更正</strong><span class="num">留意</span></li>
+              <li><strong>素材是否可验证</strong><span class="num">留意</span></li>
+              <li><strong>是否含情绪化引导</strong><span class="num">警惕</span></li>
+            </ul>
+          </div>
+          <div class="side-panel">
+            <h3>阅读原则</h3>
+            <p class="side-note">
+              线索不等于事实，传闻不等于结论。对尚未确认的信息，保持“暂不判断”的态度，是对他人也是对自己的保护。涉及个人隐私、未成年人信息的内容，不建议传播。
+            </p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- 投稿规范 -->
+  <section class="block" id="guide">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>投稿规范与流程</h2>
+        <p>一份可用的线索，重点不在情绪强烈，而在信息完整、逻辑清楚、可供核对。</p>
+      </div>
+
+      <div class="steps" style="margin-bottom:30px;">
+        <div class="step">
+          <h3>整理事实经过</h3>
+          <p>按时间顺序写清楚发生了什么、涉及哪些环节，避免大段主观评价。</p>
+        </div>
+        <div class="step">
+          <h3>附上可核对材料</h3>
+          <p>提供原始文件而非二次压缩版本，注明材料获取时间与方式。</p>
+        </div>
+        <div class="step">
+          <h3>说明信息来源</h3>
+          <p>区分“亲历”“转述”“听说”，不同来源的可信度差异很大。</p>
+        </div>
+        <div class="step">
+          <h3>标注未确认部分</h3>
+          <p>对无法证实的环节如实说明，不夸大、不补全、不推测细节。</p>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>材料类型</th>
+              <th>建议做法</th>
+              <th>常见问题</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>文字说明</b></td>
+              <td class="ok">按时间线分段，注明人物关系</td>
+              <td class="no">大量情绪化表达，缺少关键节点</td>
+            </tr>
+            <tr>
+              <td><b>截图记录</b></td>
+              <td class="ok">保留完整界面与时间信息</td>
+              <td class="no">裁剪过度，无法判断上下文</td>
+            </tr>
+            <tr>
+              <td><b>音视频</b></td>
+              <td class="ok">保留原始文件与拍摄时间</td>
+              <td class="no">仅提供剪辑后的片段</td>
+            </tr>
+            <tr>
+              <td><b>书面凭证</b></td>
+              <td class="ok">关键信息可辨认，遮挡隐私</td>
+              <td class="no">涂抹过多，失去核对价值</td>
+            </tr>
+            <tr>
+              <td><b>第三方转述</b></td>
+              <td class="ok">注明转述来源与转述层级</td>
+              <td class="no">把传闻写成确定事实</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="notice">
+        <b>隐私提醒：</b>投稿与阅读时，请勿公开他人身份证号、手机号、住址、工作单位等敏感信息，也不要传播涉及未成年人的可识别内容。信息发布应遵守相关法律法规。
+      </div>
+    </div>
+  </section>
+
+  <!-- 核实方法 -->
+  <section class="block" id="verify">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>信息核实方法</h2>
+        <p>核实不是寻找“想要的答案”，而是排除那些站不住脚的可能。</p>
+      </div>
+      <div class="guide-grid">
+        <article class="guide-card">
+          <h3><span class="bar"></span>来源追溯</h3>
+          <ul>
+            <li>寻找最早发布的原始链接，而不是转发页面。</li>
+            <li>核对发布账号的历史内容与身份说明。</li>
+            <li>区分原创发布与二次搬运、加工。</li>
+            <li>留意是否存在同名、仿冒账号。</li>
+          </ul>
+        </article>
+        <article class="guide-card">
+          <h3><span class="bar"></span>时间线还原</h3>
+          <ul>
+            <li>确认事件发生时间与传播时间是否一致。</li>
+            <li>检查是否存在旧内容重新包装的情况。</li>
+            <li>记录后续是否有更正、澄清或进展。</li>
+            <li>注意时区、日期格式造成的误读。</li>
+          </ul>
+        </article>
+        <article class="guide-card">
+          <h3><span class="bar"></span>素材鉴别</h3>
+          <ul>
+            <li>观察图片边缘、光影、字体是否自然。</li>
+            <li>用原图检索方式查找是否更早出现。</li>
+            <li>视频注意剪辑点、音画是否同步。</li>
+            <li>文件类材料关注格式、属性与元信息。</li>
+          </ul>
+        </article>
+        <article class="guide-card">
+          <h3><span class="bar"></span>多方比对</h3>
+          <ul>
+            <li>寻找立场不同的多个信息源。</li>
+            <li>对比各方在关键细节上是否一致。</li>
+            <li>关注是否有当事方的正式回应。</li>
+            <li>对矛盾之处保持记录，不强行统一。</li>
+          </ul>
+        </article>
+        <article class="guide-card">
+          <h3><span class="bar"></span>逻辑自查</h3>
+          <ul>
+            <li>结论是否超出了材料能支撑的范围。</li>
+            <li>是否存在明显的因果跳跃。</li>
+            <li>情绪强度是否与证据强度不匹配。</li>
+            <li>换一个角度，是否还有别的解释。</li>
+          </ul>
+        </article>
+        <article class="guide-card">
+          <h3><span class="bar"></span>传播自律</h3>
+          <ul>
+            <li>未确认内容不加上肯定性描述转发。</li>
+            <li>不使用夸张标题吸引点击。</li>
+            <li>不参与对个人的集中指责与围攻。</li>
+            <li>发现错误及时更正或删除。</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="block" id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>常见问题</h2>
+        <p>关于线索阅读、投稿与核实的常见疑问。</p>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary>91爆料网这类平台的内容可以直接当作事实吗？</summary>
+          <div class="ans">
+            不建议。任何以线索、投稿、传闻形式出现的内容，在得到充分核实之前都只能作为参考信息。判断时应关注来源是否明确、证据是否可验证、是否有当事方回应，而不是依据传播热度或情绪强度下结论。
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>看到疑似不实内容，应该怎么处理？</summary>
+          <div class="ans">
+            首先不要转发扩散；其次可以记录原始链接与截图，便于后续核对；如果内容涉及明显的侵权、诈骗或违法信息，可通过平台举报渠道或相关主管部门渠道反映。个人不宜以曝光为名公开他人隐私。
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>投稿时提供哪些材料更有参考价值？</summary>
+          <div class="ans">
+            原始、完整、可追溯的材料更有价值。例如未经裁剪的截图、原始音视频文件、书面凭证的清晰照片，以及能够说明时间、地点、人物关系的文字说明。二次加工、来源不明的素材参考价值较低。
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>为什么同一件事会出现完全相反的说法？</summary>
+          <div class="ans">
+            常见原因包括信息获取渠道不同、转述层级过多、当事人立场差异、部分细节被省略或放大，以及旧信息与新进展混在一起传播。遇到这种情况，与其急着选边，不如先把时间线和各方说法分别列清楚。
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>匿名投稿是否可信？</summary>
+          <div class="ans">
+            匿名本身不代表虚假，也不代表可信。匿名可以保护投稿人，但同时降低了身份可追溯性。判断时应更依赖材料本身的质量与可验证程度，而不是投稿人是否署名。
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>阅读这类内容时，怎样减少被误导的可能？</summary>
+          <div class="ans">
+            养成三个习惯：先找原始出处，再看发布时间，最后看是否有后续更新或更正。同时留意内容是否刻意激发强烈情绪，因为情绪化表达往往会掩盖信息本身的薄弱。
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- 页脚 -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <span class="mark">91</span>
+          爆料网
+        </div>
+        <p>
+          91爆料网是一个围绕网络线索整理与信息核实方法展开的内容站点，强调来源可追溯、证据可核对、表达有边界。站内内容用于信息参考，不构成对任何具体事件或个人的定性判断。
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>内容分类</h4>
+        <a href="#category">社会民生线索</a>
+        <a href="#category">职场企业话题</a>
+        <a href="#category">消费产品争议</a>
+        <a href="#category">网络流传内容</a>
+      </div>
+      <div class="footer-col">
+        <h4>使用指南</h4>
+        <a href="#guide">投稿规范</a>
+        <a href="#verify">核实方法</a>
+        <a href="#hot">线索观察</a>
+        <a href="#faq">常见问题</a>
+      </div>
+      <div class="footer-col">
+        <h4>阅读提醒</h4>
+        <a href="#verify">来源追溯</a>
+        <a href="#verify">时间线还原</a>
+        <a href="#verify">素材鉴别</a>
+        <a href="#verify">传播自律</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 91爆料网 · 内容仅供信息参考，请理性判断</span>
+      <span>请勿传播他人隐私，遵守相关法律法规</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var links = document.querySelectorAll('.main-nav a[href^="#"]');
+  links.forEach(function (link) {
+    link.addEventListener('click', function () {
+      links.forEach(function (l) { l.classList.remove('active'); });
+      link.classList.add('active');
+    });
+  });
+})();
+</script>
+
+</body>
+  </html>
