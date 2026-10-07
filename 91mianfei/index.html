@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>91免费-免费资源导航与实用工具使用指南</title>
+<meta name="description" content="91免费是一个面向普通用户的免费资源与实用工具导航站，聚合免费软件、在线工具、学习资料与生活服务入口，并提供安全使用提示与常见问题解答。">
+<meta name="keywords" content="91免费,免费资源,免费工具,免费软件,在线工具,资源导航,免费下载">
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+<style>
+:root{
+  --bg:#f4f6fa;
+  --panel:#ffffff;
+  --ink:#1d2433;
+  --ink-soft:#5a6377;
+  --line:#e3e8f0;
+  --brand:#1f6feb;
+  --brand-deep:#1550b3;
+  --brand-soft:#e8f0fe;
+  --accent:#0f9d76;
+  --accent-soft:#e4f6f0;
+  --warn:#b7791f;
+  --warn-soft:#fdf4e3;
+  --radius:14px;
+  --shadow:0 6px 22px rgba(29,36,51,.07);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.7;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--brand);text-decoration:none;}
+a:hover{color:var(--brand-deep);}
+img{max-width:100%;display:block;}
+.wrap{width:100%;max-width:1160px;margin:0 auto;padding:0 20px;}
+
+/* 顶栏 */
+.topbar{
+  background:#101827;
+  color:#c6cede;
+  font-size:13px;
+}
+.topbar .wrap{
+  display:flex;justify-content:space-between;align-items:center;
+  min-height:38px;gap:12px;flex-wrap:wrap;
+}
+.topbar span{opacity:.85;}
+.topbar nav a{color:#c6cede;margin-left:16px;}
+.topbar nav a:hover{color:#fff;}
+
+/* 页眉 */
+header.site-head{
+  background:var(--panel);
+  border-bottom:1px solid var(--line);
+  position:sticky;top:0;z-index:50;
+  box-shadow:0 2px 10px rgba(29,36,51,.04);
+}
+.head-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:20px;min-height:66px;flex-wrap:wrap;
+}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;color:var(--ink);}
+.logo .mark{
+  width:34px;height:34px;border-radius:9px;
+  background:linear-gradient(135deg,var(--brand),#4f9bff);
+  color:#fff;display:flex;align-items:center;justify-content:center;
+  font-size:15px;font-weight:800;letter-spacing:.5px;
+}
+.logo small{display:block;font-size:11px;font-weight:500;color:var(--ink-soft);letter-spacing:1px;}
+nav.main-nav{display:flex;gap:4px;flex-wrap:wrap;}
+nav.main-nav a{
+  padding:8px 14px;border-radius:9px;color:var(--ink-soft);
+  font-size:15px;font-weight:500;
+}
+nav.main-nav a:hover,nav.main-nav a.active{background:var(--brand-soft);color:var(--brand-deep);}
+.head-search{display:flex;gap:8px;}
+.head-search input{
+  border:1px solid var(--line);background:#f8fafc;border-radius:9px;
+  padding:9px 12px;font-size:14px;width:190px;outline:none;color:var(--ink);
+}
+.head-search input:focus{border-color:var(--brand);background:#fff;}
+.head-search button{
+  border:0;background:var(--brand);color:#fff;border-radius:9px;
+  padding:9px 16px;font-size:14px;cursor:pointer;font-weight:600;
+}
+.head-search button:hover{background:var(--brand-deep);}
+
+/* 首屏 */
+.hero{
+  background:linear-gradient(160deg,#eef4ff 0%,#f7fafe 55%,#f4f6fa 100%);
+  border-bottom:1px solid var(--line);
+  padding:52px 0 46px;
+}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;}
+.hero h1{font-size:34px;line-height:1.35;margin:0 0 16px;letter-spacing:.3px;}
+.hero h1 em{font-style:normal;color:var(--brand);}
+.hero p.lead{margin:0 0 22px;color:var(--ink-soft);font-size:16.5px;max-width:560px;}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
+.btn{
+  display:inline-block;padding:11px 22px;border-radius:10px;font-weight:600;font-size:15px;
+  border:1px solid transparent;cursor:pointer;
+}
+.btn-primary{background:var(--brand);color:#fff;box-shadow:0 6px 16px rgba(31,111,235,.25);}
+.btn-primary:hover{background:var(--brand-deep);color:#fff;}
+.btn-ghost{background:#fff;color:var(--brand-deep);border-color:#cddcf7;}
+.btn-ghost:hover{background:var(--brand-soft);color:var(--brand-deep);}
+.hero-tags{margin-top:20px;display:flex;gap:8px;flex-wrap:wrap;}
+.hero-tags span{
+  background:#fff;border:1px solid var(--line);color:var(--ink-soft);
+  font-size:13px;padding:4px 11px;border-radius:20px;
+}
+.hero-panel{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:22px 22px 18px;
+}
+.hero-panel h2{font-size:16px;margin:0 0 14px;color:var(--ink);}
+.hero-panel ul{list-style:none;margin:0;padding:0;}
+.hero-panel li{
+  display:flex;justify-content:space-between;gap:10px;
+  padding:9px 0;border-bottom:1px dashed var(--line);font-size:14.5px;
+}
+.hero-panel li:last-child{border-bottom:0;}
+.hero-panel li span{color:var(--ink-soft);font-size:13px;}
+
+/* 通用区块 */
+section.block{padding:46px 0;}
+.section-head{margin-bottom:26px;}
+.section-head h2{
+  font-size:23px;margin:0 0 8px;letter-spacing:.2px;
+}
+.section-head p{margin:0;color:var(--ink-soft);font-size:15px;}
+
+/* 分类导航 */
+.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.cat-card{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:20px 18px;transition:.2s;display:block;color:inherit;
+}
+.cat-card:hover{border-color:#bcd3f8;box-shadow:var(--shadow);transform:translateY(-2px);color:inherit;}
+.cat-card .ico{
+  width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;
+  background:var(--brand-soft);color:var(--brand-deep);font-weight:800;font-size:15px;margin-bottom:12px;
+}
+.cat-card h3{margin:0 0 6px;font-size:16px;}
+.cat-card p{margin:0;font-size:13.5px;color:var(--ink-soft);}
+
+/* 推荐列表 */
+.pick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.pick-card{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:20px;display:flex;flex-direction:column;gap:10px;
+}
+.pick-card .top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
+.pick-card h3{margin:0;font-size:16.5px;}
+.badge{
+  font-size:12px;padding:3px 9px;border-radius:20px;white-space:nowrap;font-weight:600;
+}
+.badge.free{background:var(--accent-soft);color:#0b7a5c;}
+.badge.safe{background:var(--brand-soft);color:var(--brand-deep);}
+.badge.tip{background:var(--warn-soft);color:var(--warn);}
+.pick-card p{margin:0;font-size:14px;color:var(--ink-soft);flex:1;}
+.pick-card .meta{font-size:13px;color:#8a93a6;border-top:1px dashed var(--line);padding-top:10px;}
+
+/* 使用步骤 */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:step;}
+.step{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px 20px;position:relative;
+}
+.step::before{
+  counter-increment:step;content:counter(step,decimal-leading-zero);
+  font-size:13px;font-weight:800;color:var(--brand);
+  background:var(--brand-soft);border-radius:8px;padding:3px 9px;display:inline-block;margin-bottom:12px;
+}
+.step h3{margin:0 0 8px;font-size:16px;}
+.step p{margin:0;font-size:14px;color:var(--ink-soft);}
+
+/* 双栏：指南 + 侧栏 */
+.split{display:grid;grid-template-columns:1.6fr 1fr;gap:30px;align-items:start;}
+.article-box{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:28px 26px;
+}
+.article-box h2{font-size:21px;margin:0 0 14px;}
+.article-box h3{font-size:16.5px;margin:24px 0 8px;}
+.article-box p{margin:0 0 12px;color:#333c4f;font-size:15px;}
+.article-box ul{margin:0 0 14px;padding-left:20px;color:#333c4f;font-size:15px;}
+.article-box li{margin-bottom:7px;}
+.note{
+  background:var(--warn-soft);border-left:4px solid #e2b155;border-radius:8px;
+  padding:14px 16px;font-size:14.5px;color:#6b5316;margin:16px 0;
+}
+aside.side{display:flex;flex-direction:column;gap:20px;}
+.side-card{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:20px;
+}
+.side-card h3{margin:0 0 14px;font-size:16px;}
+.rank-list{list-style:none;margin:0;padding:0;counter-reset:rank;}
+.rank-list li{
+  counter-increment:rank;display:flex;gap:10px;align-items:flex-start;
+  padding:9px 0;border-bottom:1px dashed var(--line);font-size:14.5px;
+}
+.rank-list li:last-child{border-bottom:0;}
+.rank-list li::before{
+  content:counter(rank);flex:0 0 22px;height:22px;border-radius:6px;
+  background:#f0f3f9;color:var(--ink-soft);font-size:12px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+}
+.rank-list li:nth-child(-n+3)::before{background:var(--brand);color:#fff;}
+.side-card p{font-size:14px;color:var(--ink-soft);margin:0 0 10px;}
+.side-card p:last-child{margin-bottom:0;}
+
+/* FAQ */
+.faq{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.faq-item{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:18px 20px;
+}
+.faq-item h3{margin:0 0 8px;font-size:15.5px;color:var(--brand-deep);}
+.faq-item p{margin:0;font-size:14.5px;color:var(--ink-soft);}
+
+/* 页脚 */
+footer.site-foot{
+  background:#101827;color:#9aa5ba;margin-top:20px;padding:40px 0 24px;font-size:14px;
+}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:26px;}
+.foot-grid h4{color:#fff;font-size:15px;margin:0 0 12px;}
+.foot-grid p{margin:0 0 10px;line-height:1.75;}
+.foot-grid ul{list-style:none;margin:0;padding:0;}
+.foot-grid li{margin-bottom:8px;}
+.foot-grid a{color:#9aa5ba;}
+.foot-grid a:hover{color:#fff;}
+.foot-bottom{
+  border-top:1px solid #1e2a40;margin-top:26px;padding-top:18px;
+  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13px;color:#7b8699;
+}
+
+/* 响应式 */
+@media (max-width:1000px){
+  .hero-grid{grid-template-columns:1fr;gap:28px;}
+  .cat-grid{grid-template-columns:repeat(2,1fr);}
+  .pick-grid{grid-template-columns:repeat(2,1fr);}
+  .steps{grid-template-columns:repeat(2,1fr);}
+  .split{grid-template-columns:1fr;}
+  .foot-grid{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:680px){
+  .head-inner{padding:12px 0;min-height:auto;}
+  nav.main-nav{width:100%;overflow-x:auto;padding-bottom:4px;}
+  nav.main-nav a{padding:7px 11px;font-size:14px;white-space:nowrap;}
+  .head-search{width:100%;}
+  .head-search input{flex:1;width:auto;}
+  .hero{padding:36px 0 32px;}
+  .hero h1{font-size:25px;}
+  .cat-grid,.pick-grid,.steps,.faq{grid-template-columns:1fr;}
+  .foot-grid{grid-template-columns:1fr;}
+  section.block{padding:34px 0;}
+  .article-box{padding:22px 18px;}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <span>免费资源导航 · 请通过正规渠道获取软件与资料</span>
+    <nav>
+      <a href="#guide">使用指南</a>
+      <a href="#faq">常见问题</a>
+      <a href="#safety">安全提示</a>
+    </nav>
+  </div>
+</div>
+
+<header class="site-head">
+  <div class="wrap head-inner">
+    <a class="logo" href="#top">
+      <span class="mark">91</span>
+      <span>91免费<small>FREE RESOURCE HUB</small></span>
+    </a>
+    <nav class="main-nav">
+      <a class="active" href="#top">首页</a>
+      <a href="#cats">资源分类</a>
+      <a href="#picks">编辑推荐</a>
+      <a href="#guide">使用指南</a>
+      <a href="#safety">安全提示</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+    <form class="head-search" onsubmit="return false;">
+      <input type="search" placeholder="搜索免费工具或资料" aria-label="搜索免费工具或资料">
+      <button type="button">搜索</button>
+    </form>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 首屏 -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>91免费：把散落在网络各处的<em>免费资源</em>整理成一份可用的清单</h1>
+        <p class="lead">
+          很多人搜索“91免费”，真正想找的并不是某个单一网站，而是一类问题的答案：哪些工具可以免费使用、哪些资料可以合法获取、去哪里找不容易踩坑。
+          这里按用途把免费软件、在线工具、学习资料和生活服务入口做了分类整理，并附上使用前的判断方法。
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#cats">浏览资源分类</a>
+          <a class="btn btn-ghost" href="#guide">先看使用指南</a>
+        </div>
+        <div class="hero-tags">
+          <span>免费软件</span>
+          <span>在线工具</span>
+          <span>学习资料</span>
+          <span>效率办公</span>
+          <span>生活服务</span>
+          <span>安全提示</span>
+        </div>
+      </div>
+      <div class="hero-panel">
+        <h2>本站整理的四类常见需求</h2>
+        <ul>
+          <li>找可免费使用的工具 <span>工具类</span></li>
+          <li>找可合法获取的资料 <span>资料类</span></li>
+          <li>找日常办事的线上入口 <span>服务类</span></li>
+          <li>判断一个“免费”是否可靠 <span>方法类</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 资源分类 -->
+  <section class="block" id="cats">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>按用途划分的资源分类</h2>
+        <p>与其记住一堆网址，不如先明确自己要解决什么问题，再去找对应的那一类入口。</p>
+      </div>
+      <div class="cat-grid">
+        <a class="cat-card" href="#picks">
+          <div class="ico">软</div>
+          <h3>免费软件</h3>
+          <p>办公、压缩、播放、截图、系统工具等常见需求的开源或免费授权软件方向。</p>
+        </a>
+        <a class="cat-card" href="#picks">
+          <div class="ico">工</div>
+          <h3>在线工具</h3>
+          <p>图片处理、格式转换、文本处理、二维码等无需安装、打开浏览器即可使用的工具。</p>
+        </a>
+        <a class="cat-card" href="#picks">
+          <div class="ico">学</div>
+          <h3>学习资料</h3>
+          <p>公开课、文档手册、编程练习、语言学习等以合法公开渠道为主的学习资源。</p>
+        </a>
+        <a class="cat-card" href="#picks">
+          <div class="ico">服</div>
+          <h3>生活服务</h3>
+          <p>政务、交通、医疗、缴费等日常线上办事入口的查找思路与注意事项。</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 编辑推荐 -->
+  <section class="block" id="picks" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>编辑推荐的资源方向</h2>
+        <p>以下按“用途 + 类型”给出方向性推荐，帮助你先缩小范围，再自行到官方渠道确认最新情况。</p>
+      </div>
+      <div class="pick-grid">
+        <article class="pick-card">
+          <div class="top">
+            <h3>办公文档处理</h3>
+            <span class="badge free">免费授权</span>
+          </div>
+          <p>文档编辑、表格处理、PDF 阅读与合并等需求，可优先考虑开源办公套件或厂商提供的免费版本，注意区分“个人免费”与“商用授权”。</p>
+          <div class="meta">关注点：授权范围、是否强制登录、导出是否有水印</div>
+        </article>
+        <article class="pick-card">
+          <div class="top">
+            <h3>图片与格式转换</h3>
+            <span class="badge safe">在线可用</span>
+          </div>
+          <p>压缩图片、转换格式、裁剪尺寸这类轻量需求，浏览器端在线工具通常够用；涉及隐私图片时，优先选择本地处理而非上传服务器。</p>
+          <div class="meta">关注点：是否上传文件、是否有次数限制</div>
+        </article>
+        <article class="pick-card">
+          <div class="top">
+            <h3>系统与压缩工具</h3>
+            <span class="badge free">开源方向</span>
+          </div>
+          <p>解压缩、磁盘清理、文件校验等基础工具，开源项目往往更透明。下载时认准项目官方发布页，避免从聚合站二次打包的版本。</p>
+          <div class="meta">关注点：发布来源、安装包是否被捆绑</div>
+        </article>
+        <article class="pick-card">
+          <div class="top">
+            <h3>编程与开发学习</h3>
+            <span class="badge safe">公开资料</span>
+          </div>
+          <p>官方文档、开源项目仓库、公开课程是相对稳定的学习来源。建议按“先官方文档、再社区教程”的顺序查阅，减少信息偏差。</p>
+          <div class="meta">关注点：文档版本是否与所用版本一致</div>
+        </article>
+        <article class="pick-card">
+          <div class="top">
+            <h3>语言与通识学习</h3>
+            <span class="badge tip">注意版权</span>
+          </div>
+          <p>公开课与机构免费课程可作为入门，教材类内容多有版权限制，建议通过图书馆、正版电子书平台等合规途径获取。</p>
+          <div class="meta">关注点：内容来源是否可公开传播</div>
+        </article>
+        <article class="pick-card">
+          <div class="top">
+            <h3>日常线上办事</h3>
+            <span class="badge safe">官方入口</span>
+          </div>
+          <p>缴费、查询、预约类服务，优先通过主管部门或服务提供方的官方渠道办理，避免在来历不明的页面填写证件号与银行卡信息。</p>
+          <div class="meta">关注点：域名是否为官方备案主体</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 使用步骤 -->
+  <section class="block">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>找到并安全使用免费资源的四个步骤</h2>
+        <p>这套流程适用于绝大多数“想找一个免费工具或资料”的场景。</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <h3>先明确需求</h3>
+          <p>写清楚你要完成的具体任务，例如“把 10 张图片压到 1MB 以内”，比直接搜“免费工具”更容易得到有效结果。</p>
+        </div>
+        <div class="step">
+          <h3>确认来源</h3>
+          <p>优先选择项目官网、开源仓库、正规厂商页面。聚合下载站可以作为线索，但下载前要回到原始发布页核对。</p>
+        </div>
+        <div class="step">
+          <h3>核对授权</h3>
+          <p>看清是免费试用、个人免费还是完全开源。商用、二次分发、去除标识等行为往往有额外限制。</p>
+        </div>
+        <div class="step">
+          <h3>控制权限</h3>
+          <p>安装时留意捆绑选项与权限申请，非必要不授予通讯录、短信、定位等敏感权限。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 指南 + 侧栏 -->
+  <section class="block" id="guide" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="wrap split">
+      <article class="article-box">
+        <h2>“免费”背后的三种常见模式</h2>
+        <p>
+          理解免费资源为什么免费，能帮你快速判断它是否适合长期使用。常见的模式大致有三类，各有取舍。
+        </p>
+
+        <h3>一、开源与社区维护</h3>
+        <p>
+          这类项目通常公开源代码，由开发者与社区共同维护，使用和分发相对自由。优点是透明、可审计；代价是界面与文档质量参差不齐，遇到问题更多依赖社区讨论自行解决。
+        </p>
+
+        <h3>二、免费增值（基础免费 + 高级付费）</h3>
+        <p>
+          基础功能免费开放，高级功能、更大容量或商用授权需要付费。使用时建议先确认免费额度的边界，例如导出次数、文件大小、是否带水印，避免在关键任务中途受限。
+        </p>
+
+        <h3>三、广告或数据支持</h3>
+        <p>
+          通过广告展示或数据服务维持运营。这类产品本身不一定有问题，但需要更留意隐私条款：哪些数据会被收集、是否用于个性化推荐、能否关闭。
+        </p>
+
+        <div class="note">
+          提示：如果某个页面要求你先关闭安全软件、先安装“下载器”，或声称“限时免费、过期收费”，建议直接放弃，换一个来源更清晰的方案。
+        </div>
+
+        <h3>如何快速判断一个免费资源是否靠谱</h3>
+        <ul>
+          <li>能否找到明确的主体信息，例如公司名称、开源仓库地址或备案信息。</li>
+          <li>下载页面是否提供校验值（如哈希值），便于核对文件是否被改动。</li>
+          <li>安装过程是否可以选择“自定义安装”，取消不必要的附加组件。</li>
+          <li>隐私政策是否说明了收集哪些信息，以及如何删除。</li>
+          <li>社区中是否存在大量关于捆绑、弹窗或扣费的反馈。</li>
+        </ul>
+
+        <h3>关于资料类内容的合规提醒</h3>
+        <p>
+          教材、影视、音乐、软件安装包等受版权保护的内容，请通过正版渠道获取。公开课、官方文档、开放数据集等可自由获取的资源，也要留意其许可协议中是否要求署名或禁止商用。
+        </p>
+      </article>
+
+      <aside class="side">
+        <div class="side-card">
+          <h3>新手常搜的方向</h3>
+          <ol class="rank-list">
+            <li>免费办公软件</li>
+            <li>在线图片压缩</li>
+            <li>PDF 转换工具</li>
+            <li>编程入门文档</li>
+            <li>公开课平台</li>
+            <li>文件校验工具</li>
+          </ol>
+        </div>
+        <div class="side-card">
+          <h3>下载前的三句自问</h3>
+          <p>这个软件我从哪里知道的？</p>
+          <p>它的官方发布页在哪里？</p>
+          <p>安装时我能不能取消所有附加选项？</p>
+        </div>
+        <div class="side-card" id="safety">
+          <h3>安全提示</h3>
+          <p>不轻信“永久免费”“无限下载”等绝对化宣传。</p>
+          <p>不在陌生页面填写身份证号、银行卡号与验证码。</p>
+          <p>重要文件先备份，再尝试来源不明的工具。</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="block" id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>常见问题</h2>
+        <p>围绕“免费资源怎么找、怎么用”的高频疑问，这里给出稳妥的参考思路。</p>
+      </div>
+      <div class="faq">
+        <div class="faq-item">
+          <h3>“91免费”具体指什么？</h3>
+          <p>它更像是用户对“免费资源集合”的一类搜索表达。不同人想找的内容差别很大，因此本站按用途分类整理，而不是指向某一个固定站点。</p>
+        </div>
+        <div class="faq-item">
+          <h3>免费工具能用于工作或商用吗？</h3>
+          <p>要看具体授权条款。很多产品区分个人免费与商用授权，商用前务必查阅官方许可说明，必要时购买相应授权。</p>
+        </div>
+        <div class="faq-item">
+          <h3>在线工具上传文件安全吗？</h3>
+          <p>涉及隐私或商业文件时，优先选择本地处理类工具。若必须使用在线服务，先确认其隐私政策与文件删除机制。</p>
+        </div>
+        <div class="faq-item">
+          <h3>为什么有些免费软件安装后多了其他程序？</h3>
+          <p>常见原因是安装包被二次打包或默认勾选了附加组件。安装时选择自定义安装并逐项取消，能从源头减少这类情况。</p>
+        </div>
+        <div class="faq-item">
+          <h3>找不到官方下载页怎么办？</h3>
+          <p>可以尝试通过开源仓库的发布页、开发者官网或正规应用商店查找。若多个渠道都找不到明确来源，建议更换替代方案。</p>
+        </div>
+        <div class="faq-item">
+          <h3>免费资源会突然收费或停服吗？</h3>
+          <p>存在这种可能。重要工作流建议准备替代方案，并定期导出自己的数据，避免过度依赖单一免费服务。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>关于 91免费</h4>
+        <p>一个面向普通用户的免费资源与实用工具导航页，重点在于整理思路、说明判断方法，帮助大家更安全地使用网络上的免费服务。</p>
+      </div>
+      <div>
+        <h4>内容导航</h4>
+        <ul>
+          <li><a href="#cats">资源分类</a></li>
+          <li><a href="#picks">编辑推荐</a></li>
+          <li><a href="#guide">使用指南</a></li>
+          <li><a href="#faq">常见问题</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>常用方向</h4>
+        <ul>
+          <li><a href="#picks">免费软件</a></li>
+          <li><a href="#picks">在线工具</a></li>
+          <li><a href="#picks">学习资料</a></li>
+          <li><a href="#picks">生活服务</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>使用提醒</h4>
+        <ul>
+          <li>通过官方渠道获取资源</li>
+          <li>尊重内容版权与授权</li>
+          <li>注意个人隐私与账号安全</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>本站为资源信息整理与使用指南页面，不提供受版权保护内容的下载。</span>
+      <span>请以各服务官方页面的最新说明为准。</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var links = document.querySelectorAll('nav.main-nav a');
+  links.forEach(function(a){
+    a.addEventListener('click', function(){
+      links.forEach(function(x){ x.classList.remove('active'); });
+      a.classList.add('active');
+    });
+  });
+})();
+</script>
+
+</body>
+  </html>
