@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>草莓视频app-功能解析、使用指南与常见问题说明</title>
+<meta name="description" content="草莓视频app相关功能解析与使用指南，介绍视频播放、内容分类、清晰度选择、缓存管理、账号与隐私注意事项，并整理常见问题，帮助用户更稳妥地了解和使用此类视频应用。">
+<meta name="keywords" content="草莓视频app,视频播放应用,手机视频软件,视频app使用指南,视频缓存管理,视频应用常见问题">
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+<style>
+  :root{
+    --berry:#e8386d;
+    --berry-deep:#b81f50;
+    --berry-soft:#ffe9f0;
+    --leaf:#2f9e6e;
+    --ink:#1e1b22;
+    --ink-2:#4a4550;
+    --ink-3:#7d7688;
+    --line:#ece5ea;
+    --bg:#fdfbfc;
+    --card:#ffffff;
+    --radius:16px;
+    --shadow:0 6px 24px rgba(184,31,80,.08);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.75;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;}
+  ul{list-style:none;}
+
+  .wrap{
+    width:100%;
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 20px;
+  }
+
+  /* ---------- 顶部 ---------- */
+  .site-header{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(255,255,255,.94);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .header-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:18px;
+    height:66px;
+  }
+  .logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:800;
+    font-size:19px;
+    letter-spacing:.3px;
+    color:var(--ink);
+    white-space:nowrap;
+  }
+  .logo-mark{
+    width:34px;height:34px;
+    border-radius:11px;
+    background:linear-gradient(135deg,var(--berry),#ff7ba4);
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;font-size:17px;
+    box-shadow:0 4px 12px rgba(232,56,109,.35);
+  }
+  .logo small{
+    display:block;
+    font-size:11px;
+    font-weight:500;
+    color:var(--ink-3);
+    letter-spacing:0;
+    line-height:1.2;
+  }
+  .main-nav{
+    display:flex;
+    align-items:center;
+    gap:4px;
+    flex-wrap:wrap;
+  }
+  .main-nav a{
+    font-size:14.5px;
+    color:var(--ink-2);
+    padding:8px 13px;
+    border-radius:9px;
+    transition:.2s;
+  }
+  .main-nav a:hover{
+    background:var(--berry-soft);
+    color:var(--berry-deep);
+  }
+  .nav-cta{
+    background:var(--berry);
+    color:#fff !important;
+    font-weight:600;
+    padding:9px 16px !important;
+    border-radius:10px;
+    box-shadow:0 4px 12px rgba(232,56,109,.28);
+  }
+  .nav-cta:hover{background:var(--berry-deep) !important;color:#fff !important;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background:
+      radial-gradient(900px 380px at 88% -10%,#ffd9e5 0%,rgba(255,217,229,0) 62%),
+      radial-gradient(700px 320px at 4% 110%,#e2f6ec 0%,rgba(226,246,236,0) 60%),
+      #fff;
+    border-bottom:1px solid var(--line);
+    padding:58px 0 52px;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.15fr .85fr;
+    gap:44px;
+    align-items:center;
+  }
+  .hero-tag{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    font-size:13px;
+    font-weight:600;
+    color:var(--berry-deep);
+    background:var(--berry-soft);
+    border:1px solid #ffd2e1;
+    padding:5px 12px;
+    border-radius:999px;
+    margin-bottom:18px;
+  }
+  .hero-tag i{
+    width:7px;height:7px;border-radius:50%;
+    background:var(--berry);
+    display:inline-block;
+  }
+  h1{
+    font-size:clamp(27px,3.6vw,40px);
+    line-height:1.3;
+    letter-spacing:-.5px;
+    font-weight:800;
+    margin-bottom:16px;
+  }
+  h1 em{
+    font-style:normal;
+    color:var(--berry);
+  }
+  .hero-lead{
+    font-size:16.5px;
+    color:var(--ink-2);
+    max-width:620px;
+    margin-bottom:26px;
+  }
+  .hero-actions{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-bottom:26px;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    font-size:15px;
+    font-weight:600;
+    padding:12px 22px;
+    border-radius:12px;
+    border:1px solid transparent;
+    cursor:pointer;
+    transition:.2s;
+  }
+  .btn-primary{
+    background:linear-gradient(135deg,var(--berry),#ff6f9c);
+    color:#fff;
+    box-shadow:0 8px 20px rgba(232,56,109,.28);
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(232,56,109,.34);}
+  .btn-ghost{
+    background:#fff;
+    border-color:var(--line);
+    color:var(--ink-2);
+  }
+  .btn-ghost:hover{border-color:#ffc3d6;color:var(--berry-deep);background:var(--berry-soft);}
+
+  .hero-points{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+    max-width:620px;
+  }
+  .hero-point{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:13px;
+    padding:13px 14px;
+  }
+  .hero-point strong{
+    display:block;
+    font-size:14.5px;
+    margin-bottom:2px;
+  }
+  .hero-point span{
+    font-size:12.5px;
+    color:var(--ink-3);
+    line-height:1.5;
+  }
+
+  /* 播放器示意卡 */
+  .player-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:20px;
+    box-shadow:var(--shadow);
+    padding:16px;
+  }
+  .player-screen{
+    position:relative;
+    border-radius:14px;
+    background:linear-gradient(140deg,#3a1f2c,#6d2b47 55%,#a12f57);
+    aspect-ratio:16/10;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+  }
+  .player-screen::after{
+    content:"";
+    position:absolute;inset:0;
+    background:radial-gradient(320px 180px at 70% 15%,rgba(255,255,255,.22),transparent 70%);
+  }
+  .play-btn{
+    position:relative;
+    z-index:2;
+    width:62px;height:62px;
+    border-radius:50%;
+    background:rgba(255,255,255,.94);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--berry);
+    font-size:22px;
+    box-shadow:0 8px 22px rgba(0,0,0,.28);
+  }
+  .player-bar{
+    position:absolute;
+    left:14px;right:14px;bottom:12px;
+    z-index:2;
+    height:4px;
+    border-radius:4px;
+    background:rgba(255,255,255,.28);
+  }
+  .player-bar i{
+    display:block;
+    width:46%;
+    height:100%;
+    border-radius:4px;
+    background:var(--berry);
+  }
+  .player-meta{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+    padding:14px 4px 4px;
+  }
+  .player-meta h3{
+    font-size:15px;
+    font-weight:700;
+  }
+  .player-meta p{
+    font-size:12.5px;
+    color:var(--ink-3);
+    margin-top:2px;
+  }
+  .chip{
+    font-size:12px;
+    font-weight:600;
+    color:var(--leaf);
+    background:#e6f6ee;
+    border-radius:999px;
+    padding:4px 10px;
+    white-space:nowrap;
+  }
+
+  /* ---------- 通用 section ---------- */
+  section{padding:56px 0;}
+  .section-head{
+    margin-bottom:30px;
+    max-width:760px;
+  }
+  .section-kicker{
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:1.6px;
+    color:var(--berry);
+    text-transform:uppercase;
+    margin-bottom:8px;
+  }
+  h2{
+    font-size:clamp(21px,2.6vw,28px);
+    line-height:1.35;
+    letter-spacing:-.3px;
+    font-weight:800;
+    margin-bottom:12px;
+  }
+  .section-head p{
+    color:var(--ink-2);
+    font-size:15.5px;
+  }
+
+  /* ---------- 功能网格 ---------- */
+  .feature-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+  }
+  .feature{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:24px 22px;
+    transition:.22s;
+  }
+  .feature:hover{
+    transform:translateY(-3px);
+    box-shadow:var(--shadow);
+    border-color:#ffd2e1;
+  }
+  .feature-icon{
+    width:44px;height:44px;
+    border-radius:13px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:20px;
+    margin-bottom:14px;
+    background:var(--berry-soft);
+    color:var(--berry-deep);
+  }
+  .feature h3{
+    font-size:16.5px;
+    font-weight:700;
+    margin-bottom:8px;
+  }
+  .feature p{
+    font-size:14.5px;
+    color:var(--ink-2);
+  }
+
+  /* ---------- 内容分类 ---------- */
+  .cat-section{
+    background:#fff;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .cat-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+  }
+  .cat-item{
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:18px 16px;
+    background:linear-gradient(180deg,#fff,#fff8fb);
+    transition:.2s;
+  }
+  .cat-item:hover{
+    border-color:#ffc3d6;
+    box-shadow:0 6px 18px rgba(232,56,109,.09);
+  }
+  .cat-item h3{
+    font-size:15.5px;
+    font-weight:700;
+    margin-bottom:6px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .cat-item h3 span{
+    width:8px;height:8px;border-radius:3px;
+    background:var(--berry);
+    flex:none;
+  }
+  .cat-item p{
+    font-size:13.5px;
+    color:var(--ink-3);
+    line-height:1.7;
+  }
+
+  /* ---------- 使用步骤 ---------- */
+  .steps{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+    counter-reset:step;
+  }
+  .step{
+    position:relative;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:24px 20px 20px;
+  }
+  .step::before{
+    counter-increment:step;
+    content:"0" counter(step);
+    position:absolute;
+    top:-14px;left:20px;
+    font-size:13px;
+    font-weight:800;
+    letter-spacing:1px;
+    color:#fff;
+    background:var(--berry);
+    padding:4px 10px;
+    border-radius:8px;
+    box-shadow:0 4px 10px rgba(232,56,109,.3);
+  }
+  .step h3{
+    font-size:15.5px;
+    font-weight:700;
+    margin:8px 0 8px;
+  }
+  .step p{
+    font-size:14px;
+    color:var(--ink-2);
+  }
+
+  /* ---------- 指南 + 侧栏 ---------- */
+  .guide-layout{
+    display:grid;
+    grid-template-columns:1.6fr .95fr;
+    gap:34px;
+    align-items:start;
+  }
+  .guide-article h3{
+    font-size:17.5px;
+    font-weight:700;
+    margin:26px 0 10px;
+    padding-left:12px;
+    border-left:4px solid var(--berry);
+    line-height:1.4;
+  }
+  .guide-article h3:first-child{margin-top:0;}
+  .guide-article p{
+    font-size:15px;
+    color:var(--ink-2);
+    margin-bottom:12px;
+  }
+  .guide-article ul{
+    margin:10px 0 16px;
+  }
+  .guide-article li{
+    position:relative;
+    padding-left:20px;
+    font-size:15px;
+    color:var(--ink-2);
+    margin-bottom:8px;
+  }
+  .guide-article li::before{
+    content:"";
+    position:absolute;
+    left:4px;top:.72em;
+    width:6px;height:6px;
+    border-radius:50%;
+    background:var(--berry);
+    opacity:.75;
+  }
+  .tip-box{
+    background:linear-gradient(135deg,#fff5f8,#fff);
+    border:1px solid #ffd9e5;
+    border-radius:14px;
+    padding:18px 20px;
+    margin:18px 0 6px;
+  }
+  .tip-box strong{
+    display:block;
+    font-size:14.5px;
+    color:var(--berry-deep);
+    margin-bottom:6px;
+  }
+  .tip-box p{
+    font-size:14px;
+    color:var(--ink-2);
+    margin:0;
+  }
+
+  .side-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:22px 20px;
+    margin-bottom:18px;
+  }
+  .side-card h3{
+    font-size:15.5px;
+    font-weight:700;
+    margin-bottom:14px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .side-card h3::before{
+    content:"";
+    width:4px;height:16px;
+    border-radius:3px;
+    background:var(--berry);
+  }
+  .side-list li{
+    display:flex;
+    gap:10px;
+    padding:11px 0;
+    border-bottom:1px dashed var(--line);
+    font-size:14px;
+    color:var(--ink-2);
+  }
+  .side-list li:last-child{border-bottom:none;padding-bottom:0;}
+  .side-list b{
+    flex:none;
+    color:var(--berry);
+    font-weight:800;
+    font-size:13px;
+    line-height:1.7;
+  }
+  .side-note{
+    font-size:13.5px;
+    color:var(--ink-3);
+    line-height:1.75;
+  }
+
+  /* ---------- 安全提示 ---------- */
+  .safety{
+    background:#1e1b22;
+    color:#e9e4ec;
+    border-radius:22px;
+    padding:40px 36px;
+  }
+  .safety h2{color:#fff;}
+  .safety .section-head p{color:#b9b2c0;}
+  .safety-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+  }
+  .safety-item{
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:14px;
+    padding:20px;
+  }
+  .safety-item h3{
+    font-size:15.5px;
+    font-weight:700;
+    color:#fff;
+    margin-bottom:8px;
+  }
+  .safety-item p{
+    font-size:14px;
+    color:#bdb6c4;
+  }
+
+  /* ---------- FAQ ---------- */
+  .faq-list{
+    display:grid;
+    gap:12px;
+    max-width:900px;
+  }
+  .faq-item{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:4px 20px;
+    transition:.2s;
+  }
+  .faq-item[open]{
+    border-color:#ffc3d6;
+    box-shadow:0 6px 18px rgba(232,56,109,.08);
+  }
+  .faq-item summary{
+    list-style:none;
+    cursor:pointer;
+    padding:16px 0;
+    font-size:15.5px;
+    font-weight:700;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:14px;
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary::after{
+    content:"+";
+    flex:none;
+    width:24px;height:24px;
+    border-radius:8px;
+    background:var(--berry-soft);
+    color:var(--berry-deep);
+    display:flex;align-items:center;justify-content:center;
+    font-size:16px;
+    font-weight:700;
+    transition:.2s;
+  }
+  .faq-item[open] summary::after{
+    content:"−";
+    background:var(--berry);
+    color:#fff;
+  }
+  .faq-item p{
+    font-size:14.5px;
+    color:var(--ink-2);
+    padding:0 0 18px;
+    border-top:1px dashed var(--line);
+    padding-top:14px;
+    margin-top:-2px;
+  }
+
+  /* ---------- 页脚 ---------- */
+  .site-footer{
+    background:#fff;
+    border-top:1px solid var(--line);
+    padding:44px 0 26px;
+    margin-top:20px;
+  }
+  .footer-grid{
+    display:grid;
+    grid-template-columns:1.4fr 1fr 1fr 1fr;
+    gap:30px;
+    margin-bottom:32px;
+  }
+  .footer-brand p{
+    font-size:14px;
+    color:var(--ink-3);
+    margin-top:12px;
+    max-width:320px;
+  }
+  .footer-col h4{
+    font-size:14.5px;
+    font-weight:700;
+    margin-bottom:14px;
+  }
+  .footer-col li{
+    margin-bottom:9px;
+  }
+  .footer-col a{
+    font-size:14px;
+    color:var(--ink-3);
+    transition:.2s;
+  }
+  .footer-col a:hover{color:var(--berry-deep);}
+  .footer-bottom{
+    border-top:1px solid var(--line);
+    padding-top:20px;
+    display:flex;
+    justify-content:space-between;
+    gap:14px;
+    flex-wrap:wrap;
+    font-size:13px;
+    color:var(--ink-3);
+  }
+
+  /* ---------- 响应式 ---------- */
+  @media (max-width:1000px){
+    .hero-grid{grid-template-columns:1fr;gap:32px;}
+    .feature-grid{grid-template-columns:repeat(2,1fr);}
+    .cat-grid{grid-template-columns:repeat(2,1fr);}
+    .steps{grid-template-columns:repeat(2,1fr);}
+    .guide-layout{grid-template-columns:1fr;gap:28px;}
+    .safety-grid{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:720px){
+    body{font-size:15.5px;}
+    .header-inner{height:auto;padding:12px 0;flex-wrap:wrap;}
+    .main-nav{width:100%;overflow-x:auto;padding-bottom:2px;}
+    .main-nav a{padding:7px 11px;font-size:14px;white-space:nowrap;}
+    .hero{padding:40px 0 38px;}
+    .hero-points{grid-template-columns:1fr;gap:10px;}
+    .hero-actions .btn{flex:1 1 auto;}
+    section{padding:42px 0;}
+    .feature-grid{grid-template-columns:1fr;}
+    .cat-grid{grid-template-columns:1fr;}
+    .steps{grid-template-columns:1fr;}
+    .safety{padding:28px 20px;border-radius:18px;}
+    .footer-grid{grid-template-columns:1fr;gap:24px;}
+    .footer-bottom{flex-direction:column;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="logo" href="#top">
+      <span class="logo-mark">🍓</span>
+      <span>草莓视频app
+        <small>视频应用功能与使用说明</small>
+      </span>
+    </a>
+    <nav class="main-nav" aria-label="主导航">
+      <a href="#features">功能解析</a>
+      <a href="#categories">内容分类</a>
+      <a href="#steps">使用步骤</a>
+      <a href="#guide">使用指南</a>
+      <a href="#safety">安全提示</a>
+      <a href="#faq">常见问题</a>
+      <a class="nav-cta" href="#guide">查看指南</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="hero-tag"><i></i>视频应用 · 功能与使用说明</span>
+        <h1>草莓视频app：<em>功能解析、使用指南与常见问题</em></h1>
+        <p class="hero-lead">
+          很多用户在搜索“草莓视频app”时，真正想了解的是这类手机视频应用能做什么、怎么用、如何管理缓存与清晰度，以及在使用过程中需要注意哪些账号与隐私问题。本页围绕这些实际问题，梳理视频应用常见的功能结构、操作流程与注意事项，帮助你更清楚地判断和使用。
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#features">了解主要功能</a>
+          <a class="btn btn-ghost" href="#faq">查看常见问题</a>
+        </div>
+        <div class="hero-points">
+          <div class="hero-point">
+            <strong>播放与清晰度</strong>
+            <span>分辨率切换、倍速与进度控制</span>
+          </div>
+          <div class="hero-point">
+            <strong>内容与分类</strong>
+            <span>按类型、标签与更新顺序浏览</span>
+          </div>
+          <div class="hero-point">
+            <strong>缓存与流量</strong>
+            <span>离线缓存、流量节省与清理</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="player-card" aria-hidden="true">
+        <div class="player-screen">
+          <div class="play-btn">▶</div>
+          <div class="player-bar"><i></i></div>
+        </div>
+        <div class="player-meta">
+          <div>
+            <h3>播放界面示意</h3>
+            <p>清晰度 · 倍速 · 进度条 · 全屏</p>
+          </div>
+          <span class="chip">示意结构</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 功能 -->
+  <section id="features">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-kicker">Features</div>
+        <h2>这类视频应用通常具备哪些功能</h2>
+        <p>不同应用的实现方式各有差异，但手机端视频类产品在功能结构上往往有共通之处。下面按使用频率从高到低梳理，方便你对照了解。</p>
+      </div>
+      <div class="feature-grid">
+        <article class="feature">
+          <div class="feature-icon">▶</div>
+          <h3>播放控制</h3>
+          <p>包括播放、暂停、拖动进度、倍速播放、全屏切换与画面比例调整。部分应用还支持手势调节亮度与音量，减少在设置页之间来回切换。</p>
+        </article>
+        <article class="feature">
+          <div class="feature-icon">HD</div>
+          <h3>清晰度选择</h3>
+          <p>常见档位有流畅、标清、高清与超清。清晰度越高，对网络带宽和设备解码能力的要求也越高，移动网络下建议按需选择。</p>
+        </article>
+        <article class="feature">
+          <div class="feature-icon">☰</div>
+          <h3>分类与检索</h3>
+          <p>通过分类栏、标签、排行榜或搜索框定位内容。分类维度通常包括题材、地区、更新时间和热度，搜索时使用更具体的关键词命中率更高。</p>
+        </article>
+        <article class="feature">
+          <div class="feature-icon">⤓</div>
+          <h3>离线缓存</h3>
+          <p>将内容保存到本地，在无网络或流量受限时观看。缓存会占用手机存储空间，建议定期在应用内清理不再需要的文件。</p>
+        </article>
+        <article class="feature">
+          <div class="feature-icon">★</div>
+          <h3>收藏与记录</h3>
+          <p>收藏列表和观看历史便于续看与回找。如果与他人共用设备，可以在设置中关闭或清空历史记录，避免个人信息外露。</p>
+        </article>
+        <article class="feature">
+          <div class="feature-icon">⚙</div>
+          <h3>偏好设置</h3>
+          <p>包括播放默认清晰度、是否允许移动网络播放、弹幕或字幕开关、消息提醒等。合理设置能在体验和流量消耗之间取得平衡。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 分类 -->
+  <section id="categories" class="cat-section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-kicker">Browse</div>
+        <h2>内容分类与浏览方式</h2>
+        <p>视频应用的内容组织方式决定了你能否快速找到想看的东西。常见的入口大致分为以下几类，实际名称以应用内显示为准。</p>
+      </div>
+      <div class="cat-grid">
+        <div class="cat-item">
+          <h3><span></span>首页推荐</h3>
+          <p>根据浏览行为或编辑编排展示内容，适合没有明确目标时浏览。</p>
+        </div>
+        <div class="cat-item">
+          <h3><span></span>分类频道</h3>
+          <p>按题材、地区、年代等维度划分，适合有明确偏好的用户。</p>
+        </div>
+        <div class="cat-item">
+          <h3><span></span>更新列表</h3>
+          <p>按时间顺序排列，方便追更，通常可查看最近更新日期。</p>
+        </div>
+        <div class="cat-item">
+          <h3><span></span>热度榜单</h3>
+          <p>以播放量或互动量为参考排序，可作为内容筛选的辅助依据。</p>
+        </div>
+        <div class="cat-item">
+          <h3><span></span>搜索入口</h3>
+          <p>输入关键词、名称片段或标签进行查找，关键词越具体越准确。</p>
+        </div>
+        <div class="cat-item">
+          <h3><span></span>我的收藏</h3>
+          <p>集中管理已收藏内容，便于二次查找和断点续看。</p>
+        </div>
+        <div class="cat-item">
+          <h3><span></span>观看历史</h3>
+          <p>记录播放进度，可随时清理，注意共用设备时的隐私问题。</p>
+        </div>
+        <div class="cat-item">
+          <h3><span></span>离线缓存</h3>
+          <p>管理已下载内容，查看占用空间并选择性删除。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 步骤 -->
+  <section id="steps">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-kicker">How to use</div>
+        <h2>从安装到播放的基本流程</h2>
+        <p>以下是一般视频应用通用的使用路径，具体按钮名称可能因版本不同而略有差别。</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <h3>获取与安装</h3>
+          <p>通过正规应用商店或官方渠道获取安装包，安装前留意应用所需的权限清单，确认与自己能接受的范围相符。</p>
+        </div>
+        <div class="step">
+          <h3>完成基础设置</h3>
+          <p>首次打开时通常需要同意用户协议、选择是否允许通知。建议同时设置默认清晰度和移动网络播放策略。</p>
+        </div>
+        <div class="step">
+          <h3>浏览并选择内容</h3>
+          <p>通过分类、榜单或搜索找到目标内容，进入详情页查看简介、集数或时长，再决定是否播放或缓存。</p>
+        </div>
+        <div class="step">
+          <h3>播放与后续管理</h3>
+          <p>播放中可调节清晰度、倍速与进度。结束后按需收藏、清理历史或删除已看完的缓存文件。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 指南 + 侧栏 -->
+  <section id="guide">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-kicker">Guide</div>
+        <h2>使用指南：从体验到管理的几个要点</h2>
+        <p>把应用用好，往往不在于记住多少按钮，而在于理解几个关键设置之间的取舍。</p>
+      </div>
+
+      <div class="guide-layout">
+        <article class="guide-article">
+          <h3>清晰度与网络环境怎么选</h3>
+          <p>清晰度越高，画面细节越丰富，但对带宽和手机解码能力的要求也越高。在 Wi-Fi 环境下可以优先选择高清档位；在移动网络下，如果流量套餐有限，建议选择标清或流畅，并在设置中关闭“允许移动网络播放”或限制为仅 Wi-Fi 播放。</p>
+          <p>如果出现频繁缓冲、画面卡顿，通常不是手机性能问题，而是当前网络带宽不足。此时降低清晰度往往比反复重试更有效。</p>
+
+          <h3>缓存管理：省流量，也要省空间</h3>
+          <p>离线缓存适合通勤、出行等网络不稳定的场景。但缓存文件会持续占用存储空间，长期不清理可能导致手机可用空间不足，进而影响应用本身的运行流畅度。</p>
+          <ul>
+            <li>定期在应用的缓存或下载管理中查看占用情况，删除已看完的内容。</li>
+            <li>缓存前确认剩余存储空间，避免下载中断产生不完整文件。</li>
+            <li>部分应用支持设置缓存清晰度，出行场景下适当降低可节省空间。</li>
+          </ul>
+
+          <h3>账号、历史与隐私</h3>
+          <p>观看历史和收藏记录属于个人使用数据。如果设备需要与他人共用，建议在设置中关闭历史记录同步，或在使用后主动清理。涉及登录的应用，应避免使用与其他重要账号相同的密码。</p>
+          <p>对于要求填写身份证号、银行卡信息或支付密码的页面，应保持警惕。正规视频应用通常不会以观看内容为由索取此类敏感信息。</p>
+
+          <div class="tip-box">
+            <strong>一个实用习惯</strong>
+            <p>把“默认清晰度”和“仅 Wi-Fi 下缓存”这两项设置一次调好，之后大多数流量和空间问题都能避免，比每次播放前手动切换更省事。</p>
+          </div>
+
+          <h3>判断应用是否值得长期使用</h3>
+          <p>可以从几个角度观察：播放是否稳定、广告出现频率是否在可接受范围、权限申请是否与功能相关、卸载后是否残留大量文件。如果一款应用频繁索取与视频播放无关的权限，或在使用中不断弹出跳转页面，就需要谨慎对待。</p>
+          <p>此外，版本更新频率和更新说明的清晰程度，也能在一定程度上反映维护情况。更新说明长期含糊或长期不更新，都值得留意。</p>
+
+          <h3>遇到播放异常时的排查顺序</h3>
+          <p>建议按由简到繁的顺序排查：先确认网络是否正常，再尝试切换清晰度；若仍无法播放，可退出应用重新进入；接着检查是否为版本过旧，必要时更新；最后再考虑清理缓存或重装。多数播放问题集中在网络和缓存两个环节。</p>
+        </article>
+
+        <aside>
+          <div class="side-card">
+            <h3>设置项速查</h3>
+            <ul class="side-list">
+              <li><b>01</b><span>默认清晰度：按常用网络环境设定</span></li>
+              <li><b>02</b><span>移动网络播放：流量有限时建议关闭</span></li>
+              <li><b>03</b><span>缓存清晰度：影响占用空间大小</span></li>
+              <li><b>04</b><span>播放历史：共用设备时建议定期清理</span></li>
+              <li><b>05</b><span>消息通知：按需开启，减少打扰</span></li>
+            </ul>
+          </div>
+          <div class="side-card">
+            <h3>浏览效率小建议</h3>
+            <p class="side-note">
+              搜索时尽量使用具体名称或特征词，而不是宽泛的类别词；追更类内容可以加入收藏，比每次翻更新列表更快；对不确定是否值得看的内容，先看简介和时长再决定是否缓存，能减少无效占用。
+            </p>
+          </div>
+          <div class="side-card">
+            <h3>关于本页说明</h3>
+            <p class="side-note">
+              本页内容为视频类应用的通用功能与使用说明整理，用于帮助理解此类产品的常见结构与操作逻辑，不构成对任何具体应用的功能承诺。实际界面与可用功能请以你所使用版本的官方说明为准。
+            </p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- 安全 -->
+  <section id="safety">
+    <div class="wrap">
+      <div class="safety">
+        <div class="section-head">
+          <div class="section-kicker" style="color:#ff8fb3">Safety</div>
+          <h2>使用视频应用时的安全与合规提示</h2>
+          <p>视频应用涉及账号、权限与内容来源，以下几点值得在安装和使用前留意。</p>
+        </div>
+        <div class="safety-grid">
+          <div class="safety-item">
+            <h3>来源要正规</h3>
+            <p>优先从官方应用商店或开发者公布的正规渠道获取安装包。来源不明的安装文件可能被篡改，存在额外风险。</p>
+          </div>
+          <div class="safety-item">
+            <h3>权限要克制</h3>
+            <p>视频播放通常只需要网络与存储权限。若应用索取通讯录、短信、通话记录等无关权限，应谨慎授权或考虑放弃使用。</p>
+          </div>
+          <div class="safety-item">
+            <h3>信息不乱填</h3>
+            <p>不要在不熟悉的页面填写身份证号、银行卡号、验证码等信息。任何以“解锁内容”为由索取支付信息的做法都应拒绝。</p>
+          </div>
+          <div class="safety-item">
+            <h3>内容要合规</h3>
+            <p>观看与传播内容应遵守法律法规和平台规则，不传播、不分享来源不明或明显违规的内容。</p>
+          </div>
+          <div class="safety-item">
+            <h3>支付要谨慎</h3>
+            <p>涉及会员或付费项目时，先确认扣费周期与取消方式，避免在不知情的情况下产生连续扣费。</p>
+          </div>
+          <div class="safety-item">
+            <h3>设备要维护</h3>
+            <p>定期清理缓存与残留文件，保持系统更新，有助于减少卡顿和兼容性问题带来的使用困扰。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-kicker">FAQ</div>
+        <h2>常见问题</h2>
+        <p>以下是围绕此类视频应用较常被问到的几个问题，答案以通用情况为参考。</p>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary>草莓视频app是什么类型的应用？</summary>
+          <p>从名称和使用场景来看，它属于手机端视频类应用。这类应用一般提供内容浏览、在线播放、清晰度切换、收藏与缓存等功能。具体提供哪些内容、是否免费、是否需要注册，取决于该应用的实际运营情况，建议以官方渠道公布的信息为准。</p>
+        </details>
+        <details class="faq-item">
+          <summary>播放时一直缓冲怎么办？</summary>
+          <p>先确认当前网络是否稳定，再尝试把清晰度调低一档。如果仍无改善，可以退出应用重新进入，或检查是否为版本过旧。缓存文件过多也可能影响运行，必要时清理缓存后再试。多数缓冲问题与网络带宽和本地缓存有关。</p>
+        </details>
+        <details class="faq-item">
+          <summary>缓存的内容找不到在哪里？</summary>
+          <p>缓存文件通常由应用自身管理，一般在“我的”或“下载/缓存”入口中查看，不一定能在手机相册或文件管理器中直接找到。如需释放空间，建议在应用内的缓存管理页面删除，而不是手动删除系统文件夹，以免产生残留。</p>
+        </details>
+        <details class="faq-item">
+          <summary>观看历史可以关闭或清除吗？</summary>
+          <p>大多数视频应用在设置中提供历史记录开关或清空选项。如果与他人共用设备，可以在使用后手动清理，或在设置中关闭记录功能。具体位置因版本而异，通常位于“设置”或“隐私”相关菜单下。</p>
+        </details>
+        <details class="faq-item">
+          <summary>使用这类应用需要注意什么？</summary>
+          <p>主要注意三点：一是通过正规渠道获取应用，避免安装来路不明的文件；二是谨慎对待权限申请和个人信息填写，不向陌生页面提供敏感信息；三是合理安排使用时间，并遵守相关法律法规与平台规则。</p>
+        </details>
+        <details class="faq-item">
+          <summary>为什么不同设备上的体验不一样？</summary>
+          <p>播放流畅度与设备性能、系统版本、网络环境都有关系。较旧的设备在解码高清晰度内容时可能更容易出现卡顿或发热，此时选择较低清晰度通常能明显改善。此外，不同系统版本对权限和后台运行的限制不同，也会影响使用体验。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="#top">
+          <span class="logo-mark">🍓</span>
+          <span>草莓视频app
+            <small>视频应用功能与使用说明</small>
+          </span>
+        </a>
+        <p>围绕视频类应用的功能结构、操作流程与使用注意事项进行整理，帮助用户更清楚地了解此类产品的常见形态。</p>
+      </div>
+      <div class="footer-col">
+        <h4>内容导航</h4>
+        <ul>
+          <li><a href="#features">功能解析</a></li>
+          <li><a href="#categories">内容分类</a></li>
+          <li><a href="#steps">使用步骤</a></li>
+          <li><a href="#guide">使用指南</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>常见问题</h4>
+        <ul>
+          <li><a href="#faq">播放与缓冲</a></li>
+          <li><a href="#faq">缓存管理</a></li>
+          <li><a href="#faq">历史记录</a></li>
+          <li><a href="#faq">设备兼容</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>使用提示</h4>
+        <ul>
+          <li><a href="#safety">安全与权限</a></li>
+          <li><a href="#safety">信息保护</a></li>
+          <li><a href="#safety">内容合规</a></li>
+          <li><a href="#safety">支付注意</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>本页为视频类应用通用功能与使用说明整理，具体功能请以你所使用版本的官方说明为准。</span>
+      <span>请遵守相关法律法规与平台规则，合理安排使用时间。</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var faqs = document.querySelectorAll('.faq-item');
+    faqs.forEach(function(item){
+      item.addEventListener('toggle', function(){
+        if(item.open){
+          faqs.forEach(function(other){
+            if(other !== item){ other.open = false; }
+          });
+        }
+      });
+    });
+  })();
+</script>
+
+</body>
+  </html>
