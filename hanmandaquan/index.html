@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>韩漫大全-热门韩漫分类推荐与在线阅读入门指南</title>
+<meta name="description" content="韩漫大全为你整理热门韩漫、分类题材、更新动态与阅读入门建议，帮助读者快速了解韩漫风格、常见类型与挑选方法。">
+<meta name="keywords" content="韩漫大全,韩漫,韩国漫画,韩漫推荐,韩漫分类,在线阅读">
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+<style>
+  :root{
+    --bg:#0f1117;
+    --bg-soft:#161a24;
+    --panel:#1b2030;
+    --line:#272d3d;
+    --text:#e8ecf4;
+    --muted:#9aa3b5;
+    --accent:#ff5c7a;
+    --accent-2:#5b8cff;
+    --accent-3:#ffc65c;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,-apple-system,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  ul{list-style:none;}
+  .wrap{width:min(1180px,92%);margin:0 auto;}
+
+  /* 顶部 */
+  .topbar{
+    background:linear-gradient(90deg,#1a1f2e,#0f1117);
+    border-bottom:1px solid var(--line);
+    font-size:13px;
+    color:var(--muted);
+  }
+  .topbar .wrap{display:flex;justify-content:space-between;align-items:center;padding:8px 0;gap:12px;flex-wrap:wrap;}
+  .topbar span{white-space:nowrap;}
+
+  /* 页眉 */
+  header.site-head{
+    position:sticky;top:0;z-index:50;
+    background:rgba(15,17,23,.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .head-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:20px;padding:14px 0;flex-wrap:wrap;
+  }
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:22px;letter-spacing:.5px;}
+  .logo .mark{
+    width:38px;height:38px;border-radius:10px;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    display:grid;place-items:center;font-size:18px;color:#fff;
+    box-shadow:0 6px 18px rgba(255,92,122,.3);
+  }
+  .logo small{display:block;font-size:11px;font-weight:400;color:var(--muted);letter-spacing:2px;}
+  nav.main-nav ul{display:flex;gap:6px;flex-wrap:wrap;}
+  nav.main-nav a{
+    padding:8px 14px;border-radius:999px;font-size:14px;color:var(--muted);
+    transition:.2s;display:inline-block;
+  }
+  nav.main-nav a:hover,nav.main-nav a.active{background:var(--panel);color:#fff;}
+  .search-box{
+    display:flex;align-items:center;gap:8px;
+    background:var(--panel);border:1px solid var(--line);
+    border-radius:999px;padding:6px 8px 6px 16px;min-width:220px;
+  }
+  .search-box input{
+    background:none;border:none;outline:none;color:var(--text);
+    font-size:14px;width:100%;font-family:inherit;
+  }
+  .search-box input::placeholder{color:#6d7688;}
+  .search-box button{
+    background:var(--accent);border:none;color:#fff;font-size:13px;
+    padding:7px 16px;border-radius:999px;cursor:pointer;font-family:inherit;
+    transition:.2s;
+  }
+  .search-box button:hover{background:#ff4568;}
+
+  /* 首屏 */
+  .hero{
+    padding:48px 0 40px;
+    background:
+      radial-gradient(900px 400px at 12% 0%,rgba(255,92,122,.16),transparent 60%),
+      radial-gradient(800px 420px at 88% 10%,rgba(91,140,255,.16),transparent 60%);
+    border-bottom:1px solid var(--line);
+  }
+  .hero-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:36px;align-items:center;}
+  .hero h1{font-size:38px;line-height:1.3;margin-bottom:16px;letter-spacing:.5px;}
+  .hero h1 em{
+    font-style:normal;
+    background:linear-gradient(90deg,var(--accent),var(--accent-3));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero p.lead{color:var(--muted);font-size:16px;max-width:640px;margin-bottom:22px;}
+  .hero-tags{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px;}
+  .hero-tags span{
+    font-size:13px;padding:6px 14px;border-radius:999px;
+    background:var(--panel);border:1px solid var(--line);color:#c3cbdb;
+  }
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
+  .btn{
+    display:inline-block;padding:12px 26px;border-radius:999px;
+    font-size:15px;font-weight:600;transition:.2s;border:1px solid transparent;
+  }
+  .btn-primary{background:linear-gradient(135deg,var(--accent),#ff7d5c);color:#fff;box-shadow:0 10px 24px rgba(255,92,122,.28);}
+  .btn-primary:hover{transform:translateY(-2px);}
+  .btn-ghost{border-color:var(--line);color:#d6dcea;background:var(--panel);}
+  .btn-ghost:hover{border-color:var(--accent-2);color:#fff;}
+
+  .hero-side{
+    background:var(--bg-soft);border:1px solid var(--line);
+    border-radius:var(--radius);padding:22px;
+  }
+  .hero-side h3{font-size:15px;color:var(--accent-3);margin-bottom:14px;letter-spacing:1px;}
+  .hero-side ul li{
+    display:flex;justify-content:space-between;gap:10px;
+    padding:10px 0;border-bottom:1px dashed var(--line);font-size:14px;
+  }
+  .hero-side ul li:last-child{border-bottom:none;}
+  .hero-side ul li span{color:var(--muted);font-size:12px;white-space:nowrap;}
+
+  /* 通用区块 */
+  section.block{padding:52px 0;}
+  .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:26px;flex-wrap:wrap;}
+  .sec-head h2{font-size:24px;letter-spacing:.5px;}
+  .sec-head h2::before{
+    content:"";display:inline-block;width:6px;height:20px;border-radius:3px;
+    background:linear-gradient(var(--accent),var(--accent-2));
+    margin-right:12px;vertical-align:-3px;
+  }
+  .sec-head p{color:var(--muted);font-size:14px;max-width:620px;}
+  .sec-head .more{color:var(--accent-2);font-size:14px;white-space:nowrap;}
+
+  /* 分类 */
+  .cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;}
+  .cat-card{
+    background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    padding:20px 18px;transition:.22s;
+  }
+  .cat-card:hover{transform:translateY(-4px);border-color:var(--accent-2);background:#20263a;}
+  .cat-card .ico{font-size:22px;margin-bottom:10px;display:block;}
+  .cat-card h3{font-size:16px;margin-bottom:6px;}
+  .cat-card p{font-size:13px;color:var(--muted);}
+
+  /* 热门列表 */
+  .hot-layout{display:grid;grid-template-columns:1.6fr 1fr;gap:28px;}
+  .work-list{display:grid;gap:14px;}
+  .work-item{
+    display:flex;gap:16px;background:var(--panel);border:1px solid var(--line);
+    border-radius:var(--radius);padding:16px;transition:.2s;
+  }
+  .work-item:hover{border-color:var(--accent);background:#20263a;}
+  .work-item .cover{
+    width:74px;min-width:74px;height:96px;border-radius:10px;
+    display:grid;place-items:center;font-size:24px;font-weight:800;color:#fff;
+  }
+  .c1{background:linear-gradient(150deg,#ff5c7a,#8a3ffc);}
+  .c2{background:linear-gradient(150deg,#5b8cff,#28c7c7);}
+  .c3{background:linear-gradient(150deg,#ffc65c,#ff7d5c);}
+  .c4{background:linear-gradient(150deg,#8a3ffc,#2b6cff);}
+  .c5{background:linear-gradient(150deg,#28c7c7,#3fd07a);}
+  .work-item .info h3{font-size:16px;margin-bottom:6px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+  .work-item .info h3 .tag{
+    font-size:11px;font-weight:500;padding:2px 8px;border-radius:6px;
+    background:rgba(255,92,122,.16);color:var(--accent);
+  }
+  .work-item .info p{font-size:13px;color:var(--muted);margin-bottom:8px;}
+  .work-item .meta{display:flex;gap:14px;font-size:12px;color:#7c8598;flex-wrap:wrap;}
+
+  .side-panel{
+    background:var(--bg-soft);border:1px solid var(--line);
+    border-radius:var(--radius);padding:20px;
+  }
+  .side-panel h3{font-size:16px;margin-bottom:14px;color:var(--accent-3);}
+  .rank-list li{
+    display:flex;gap:12px;align-items:center;padding:10px 0;
+    border-bottom:1px dashed var(--line);font-size:14px;
+  }
+  .rank-list li:last-child{border-bottom:none;}
+  .rank-list .num{
+    width:22px;height:22px;border-radius:6px;display:grid;place-items:center;
+    font-size:12px;font-weight:700;background:var(--panel);color:var(--muted);flex:0 0 auto;
+  }
+  .rank-list li:nth-child(1) .num{background:var(--accent);color:#fff;}
+  .rank-list li:nth-child(2) .num{background:var(--accent-2);color:#fff;}
+  .rank-list li:nth-child(3) .num{background:var(--accent-3);color:#222;}
+  .rank-list .name{flex:1;color:#dbe2ef;}
+  .rank-list .type{font-size:12px;color:#7c8598;}
+
+  /* 更新动态 */
+  .update-table{
+    width:100%;border-collapse:collapse;background:var(--panel);
+    border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+  }
+  .update-table th,.update-table td{
+    padding:14px 18px;text-align:left;font-size:14px;border-bottom:1px solid var(--line);
+  }
+  .update-table th{background:var(--bg-soft);color:var(--muted);font-weight:600;font-size:13px;letter-spacing:.5px;}
+  .update-table tr:last-child td{border-bottom:none;}
+  .update-table tr:hover td{background:#20263a;}
+  .update-table td.state{color:#3fd07a;font-size:13px;}
+  .update-table td.state.soon{color:var(--accent-3);}
+
+  /* 阅读指南 */
+  .guide-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
+  .guide-card{
+    background:var(--panel);border:1px solid var(--line);
+    border-radius:var(--radius);padding:24px;border-top:3px solid var(--accent-2);
+  }
+  .guide-card:nth-child(2){border-top-color:var(--accent);}
+  .guide-card:nth-child(3){border-top-color:var(--accent-3);}
+  .guide-card h3{font-size:17px;margin-bottom:10px;}
+  .guide-card p{font-size:14px;color:var(--muted);}
+  .guide-card ul{margin-top:12px;display:grid;gap:8px;}
+  .guide-card ul li{font-size:13.5px;color:#c3cbdb;padding-left:18px;position:relative;}
+  .guide-card ul li::before{
+    content:"";position:absolute;left:0;top:9px;width:6px;height:6px;
+    border-radius:50%;background:var(--accent-2);
+  }
+
+  /* FAQ */
+  .faq{display:grid;gap:12px;}
+  .faq details{
+    background:var(--panel);border:1px solid var(--line);
+    border-radius:var(--radius);padding:0 20px;transition:.2s;
+  }
+  .faq details[open]{border-color:var(--accent-2);}
+  .faq summary{
+    cursor:pointer;padding:18px 0;font-size:15.5px;font-weight:600;
+    list-style:none;display:flex;justify-content:space-between;gap:14px;align-items:center;
+  }
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary::after{
+    content:"+";font-size:20px;color:var(--accent-2);font-weight:400;flex:0 0 auto;
+  }
+  .faq details[open] summary::after{content:"−";}
+  .faq .answer{padding:0 0 20px;font-size:14px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px;}
+
+  /* 页脚 */
+  footer.site-foot{
+    background:var(--bg-soft);border-top:1px solid var(--line);
+    padding:44px 0 22px;margin-top:20px;
+  }
+  .foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:28px;}
+  .foot-grid h4{font-size:14px;margin-bottom:14px;color:#fff;letter-spacing:.5px;}
+  .foot-grid p{font-size:13px;color:var(--muted);max-width:320px;}
+  .foot-grid ul{display:grid;gap:9px;}
+  .foot-grid ul a{font-size:13px;color:var(--muted);transition:.2s;}
+  .foot-grid ul a:hover{color:var(--accent);}
+  .foot-bottom{
+    margin-top:32px;padding-top:18px;border-top:1px solid var(--line);
+    display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+    font-size:12.5px;color:#6d7688;
+  }
+
+  /* 响应式 */
+  @media (max-width:960px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hot-layout{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+    .hero h1{font-size:30px;}
+  }
+  @media (max-width:640px){
+    .head-inner{gap:12px;}
+    .search-box{width:100%;min-width:0;}
+    nav.main-nav ul{gap:2px;}
+    nav.main-nav a{padding:7px 10px;font-size:13px;}
+    .hero{padding:34px 0 30px;}
+    .hero h1{font-size:25px;}
+    section.block{padding:38px 0;}
+    .sec-head h2{font-size:20px;}
+    .foot-grid{grid-template-columns:1fr;}
+    .update-table th,.update-table td{padding:11px 12px;font-size:13px;}
+    .work-item .cover{width:60px;min-width:60px;height:80px;font-size:20px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <span>📚 韩漫大全 · 分类整理与阅读参考</span>
+    <span>内容以题材介绍与挑选建议为主，请支持正版阅读渠道</span>
+  </div>
+</div>
+
+<header class="site-head">
+  <div class="wrap head-inner">
+    <a class="logo" href="#top">
+      <span class="mark">漫</span>
+      <span>韩漫大全<small>KOREAN COMICS</small></span>
+    </a>
+    <nav class="main-nav">
+      <ul>
+        <li><a class="active" href="#top">首页</a></li>
+        <li><a href="#category">题材分类</a></li>
+        <li><a href="#hot">热门推荐</a></li>
+        <li><a href="#update">更新动态</a></li>
+        <li><a href="#guide">阅读指南</a></li>
+        <li><a href="#faq">常见问题</a></li>
+      </ul>
+    </nav>
+    <div class="search-box">
+      <input type="search" placeholder="搜索题材 / 作品名" aria-label="搜索韩漫题材或作品名">
+      <button type="button">搜索</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 首屏 -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>韩漫大全：快速了解<em>韩国漫画</em>的题材、风格与挑选方法</h1>
+        <p class="lead">
+          韩漫（韩国漫画）以竖屏条漫为主要呈现形式，题材覆盖校园、恋爱、奇幻、悬疑、职场等方向，节奏明快、色彩饱和度高，适合在手机上连续阅读。本页把常见的分类方式、挑选思路和阅读注意事项整理在一起，帮助刚接触韩漫的读者少走弯路。
+        </p>
+        <div class="hero-tags">
+          <span># 竖屏条漫</span>
+          <span># 恋爱日常</span>
+          <span># 奇幻冒险</span>
+          <span># 悬疑推理</span>
+          <span># 职场成长</span>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#category">按题材找韩漫</a>
+          <a class="btn btn-ghost" href="#guide">阅读入门建议</a>
+        </div>
+      </div>
+      <aside class="hero-side">
+        <h3>新读者常关注的几个方向</h3>
+        <ul>
+          <li><span>轻松日常、恋爱向</span><span>入门友好</span></li>
+          <li><span>奇幻、异能、冒险</span><span>世界观庞大</span></li>
+          <li><span>悬疑、犯罪、推理</span><span>节奏紧凑</span></li>
+          <li><span>职场、成长、现实向</span><span>贴近生活</span></li>
+          <li><span>历史、武侠、古风</span><span>画风考究</span></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 分类 -->
+  <section class="block" id="category">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2>韩漫常见题材分类</h2>
+          <p>韩漫的分类并不完全统一，不同平台命名略有差异。下面按读者最容易理解的维度做了归纳，方便按兴趣快速定位。</p>
+        </div>
+        <a class="more" href="#hot">查看热门推荐 →</a>
+      </div>
+      <div class="cat-grid">
+        <article class="cat-card">
+          <span class="ico">💗</span>
+          <h3>恋爱与日常</h3>
+          <p>校园、都市、同居、重逢等桥段居多，情绪细腻，适合碎片时间阅读。</p>
+        </article>
+        <article class="cat-card">
+          <span class="ico">🐉</span>
+          <h3>奇幻与冒险</h3>
+          <p>异世界、魔法、公会、转生等设定，强调世界观搭建与成长线。</p>
+        </article>
+        <article class="cat-card">
+          <span class="ico">🔍</span>
+          <h3>悬疑与推理</h3>
+          <p>案件、心理博弈、反转结构，阅读时更依赖线索与节奏把控。</p>
+        </article>
+        <article class="cat-card">
+          <span class="ico">💼</span>
+          <h3>职场与现实</h3>
+          <p>聚焦工作、家庭、人际与自我成长，题材贴近现实生活经验。</p>
+        </article>
+        <article class="cat-card">
+          <span class="ico">⚔️</span>
+          <h3>武侠与古风</h3>
+          <p>东方背景、江湖恩怨与历史架空，画风与分镜往往更具风格化。</p>
+        </article>
+        <article class="cat-card">
+          <span class="ico">🎮</span>
+          <h3>游戏与竞技</h3>
+          <p>围绕游戏、体育、竞技展开，强调对抗过程与团队关系。</p>
+        </article>
+        <article class="cat-card">
+          <span class="ico">😄</span>
+          <h3>喜剧与搞笑</h3>
+          <p>以夸张表情包式演出和短节奏笑点为主，适合放松解压。</p>
+        </article>
+        <article class="cat-card">
+          <span class="ico">🌙</span>
+          <h3>治愈与温情</h3>
+          <p>节奏舒缓，注重人物情绪与生活细节，读起来相对轻松。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 热门推荐 -->
+  <section class="block" id="hot" style="background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2>热门方向与代表题材</h2>
+          <p>以下为按题材热度整理的阅读方向示例，用于说明不同类型韩漫的常见看点，具体作品请以各平台实际在架内容为准。</p>
+        </div>
+      </div>
+      <div class="hot-layout">
+        <div class="work-list">
+          <article class="work-item">
+            <div class="cover c1">恋</div>
+            <div class="info">
+              <h3>都市恋爱向 <span class="tag">入门友好</span></h3>
+              <p>以现代都市为背景，围绕相遇、误会与和解展开，情绪推进自然，适合作为接触韩漫的第一类题材。</p>
+              <div class="meta"><span>关键词：日常 / 情感 / 成长</span><span>阅读节奏：中速</span></div>
+            </div>
+          </article>
+          <article class="work-item">
+            <div class="cover c2">幻</div>
+            <div class="info">
+              <h3>异世界奇幻向 <span class="tag">世界观庞大</span></h3>
+              <p>常见设定包括能力觉醒、公会体系与层级挑战，前期信息量较大，建议连续阅读若干话再判断是否合口味。</p>
+              <div class="meta"><span>关键词：冒险 / 战斗 / 成长</span><span>阅读节奏：快</span></div>
+            </div>
+          </article>
+          <article class="work-item">
+            <div class="cover c3">悬</div>
+            <div class="info">
+              <h3>悬疑推理向 <span class="tag">高反转</span></h3>
+              <p>以案件或谜团为主线，依靠伏笔回收与信息差推进。此类作品通常需要按顺序阅读，跳读容易丢失线索。</p>
+              <div class="meta"><span>关键词：推理 / 心理 / 反转</span><span>阅读节奏：紧凑</span></div>
+            </div>
+          </article>
+          <article class="work-item">
+            <div class="cover c4">侠</div>
+            <div class="info">
+              <h3>古风武侠向 <span class="tag">画风突出</span></h3>
+              <p>结合东方美学与江湖设定，分镜与动作表现是主要看点，适合偏好传统题材的读者。</p>
+              <div class="meta"><span>关键词：江湖 / 恩怨 / 历史架空</span><span>阅读节奏：中速</span></div>
+            </div>
+          </article>
+          <article class="work-item">
+            <div class="cover c5">愈</div>
+            <div class="info">
+              <h3>治愈日常向 <span class="tag">轻松解压</span></h3>
+              <p>单元式结构较多，每话相对独立，适合睡前或通勤时短时间阅读，不追求强情节推进。</p>
+              <div class="meta"><span>关键词：温情 / 生活 / 单元剧</span><span>阅读节奏：舒缓</span></div>
+            </div>
+          </article>
+        </div>
+
+        <aside class="side-panel">
+          <h3>题材热度参考</h3>
+          <ul class="rank-list">
+            <li><span class="num">1</span><span class="name">都市恋爱</span><span class="type">情感</span></li>
+            <li><span class="num">2</span><span class="name">异世界奇幻</span><span class="type">冒险</span></li>
+            <li><span class="num">3</span><span class="name">悬疑推理</span><span class="type">烧脑</span></li>
+            <li><span class="num">4</span><span class="name">职场现实</span><span class="type">成长</span></li>
+            <li><span class="num">5</span><span class="name">古风武侠</span><span class="type">东方</span></li>
+            <li><span class="num">6</span><span class="name">喜剧搞笑</span><span class="type">解压</span></li>
+            <li><span class="num">7</span><span class="name">治愈日常</span><span class="type">温情</span></li>
+            <li><span class="num">8</span><span class="name">游戏竞技</span><span class="type">热血</span></li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- 更新动态 -->
+  <section class="block" id="update">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2>更新与追更节奏说明</h2>
+          <p>韩漫多采用周更或双周更，部分作品会按季分档。下表用于说明常见的更新状态类型，方便安排追更计划。</p>
+        </div>
+      </div>
+      <table class="update-table">
+        <thead>
+          <tr>
+            <th>状态类型</th>
+            <th>说明</th>
+            <th>适合的读者</th>
+            <th>状态</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>连载中</td>
+            <td>按固定周期持续更新，剧情仍在推进</td>
+            <td>喜欢追更、参与讨论的读者</td>
+            <td class="state">持续更新</td>
+          </tr>
+          <tr>
+            <td>休刊中</td>
+            <td>因作者调整或制作安排暂时停止更新</td>
+            <td>可以接受等待的读者</td>
+            <td class="state soon">暂停</td>
+          </tr>
+          <tr>
+            <td>已完结</td>
+            <td>主线剧情已收尾，可一次性连续阅读</td>
+            <td>偏好一口气读完的读者</td>
+            <td class="state">可完整阅读</td>
+          </tr>
+          <tr>
+            <td>分季连载</td>
+            <td>按季划分，季与季之间间隔较长</td>
+            <td>能接受阶段性断点的读者</td>
+            <td class="state soon">分季</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 阅读指南 -->
+  <section class="block" id="guide" style="background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2>韩漫阅读入门指南</h2>
+          <p>第一次接触韩漫时，选对入口比盲目追热门更重要。下面三点是大多数读者反馈中比较实用的经验。</p>
+        </div>
+      </div>
+      <div class="guide-grid">
+        <article class="guide-card">
+          <h3>一、先定题材，再看画风</h3>
+          <p>韩漫题材差异很大，先确定自己偏好情感、冒险还是悬疑，再在同题材内比较画风与分镜，筛选效率会明显提高。</p>
+          <ul>
+            <li>喜欢情绪细腻：优先看恋爱与治愈类</li>
+            <li>喜欢强设定：优先看奇幻与竞技类</li>
+            <li>喜欢动脑：优先看悬疑与推理类</li>
+          </ul>
+        </article>
+        <article class="guide-card">
+          <h3>二、注意条漫的阅读习惯</h3>
+          <p>竖屏条漫的画面是上下连续排布的，阅读时以纵向滑动为主，与翻页式漫画的体验不同，需要一点适应时间。</p>
+          <ul>
+            <li>建议开启全屏，减少页面元素干扰</li>
+            <li>不要在关键分镜处快速滑动，容易漏掉细节</li>
+            <li>长时间阅读注意用眼休息</li>
+          </ul>
+        </article>
+        <article class="guide-card">
+          <h3>三、优先选择正规渠道</h3>
+          <p>韩漫作品通常有明确的版权归属。通过正规平台阅读，既能获得稳定的画质与更新，也有助于支持创作者持续产出。</p>
+          <ul>
+            <li>确认平台资质与内容授权情况</li>
+            <li>警惕要求额外权限或诱导下载的页面</li>
+            <li>不轻信“免费全集”类来源不明的链接</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="block" id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2>关于韩漫的常见问题</h2>
+          <p>整理了几个新读者最常提出的问题，帮助建立基本认知。</p>
+        </div>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>韩漫和日漫的主要区别是什么？</summary>
+          <div class="answer">
+            最直观的区别在呈现形式：韩漫以竖屏条漫为主，画面从上到下连续排布，适合手机滑动阅读；日漫多为传统翻页式分镜，强调单页构图。题材上两者有大量重叠，但韩漫在都市情感、职场现实等方向的作品比重相对突出。
+          </div>
+        </details>
+        <details>
+          <summary>第一次看韩漫，应该从哪类题材开始？</summary>
+          <div class="answer">
+            如果平时阅读量不多，建议从治愈日常或都市恋爱类入手，这类作品单话信息量适中、情节门槛低。如果已经习惯长篇叙事，可以直接尝试奇幻冒险或悬疑推理类。
+          </div>
+        </details>
+        <details>
+          <summary>为什么有些韩漫会中途休刊？</summary>
+          <div class="answer">
+            休刊原因通常与制作周期、作者身体状况或平台排期有关。韩漫多为团队化制作，分镜、上色、翻译等环节需要协调，出现阶段性停顿属于行业内的常见情况。
+          </div>
+        </details>
+        <details>
+          <summary>追更时有什么需要注意的地方？</summary>
+          <div class="answer">
+            一是确认作品的更新周期，避免频繁刷新；二是留意平台是否有章节缓存或收藏功能，方便集中阅读；三是对于分季连载的作品，建议在季末做好剧情节点记录，便于下一季衔接。
+          </div>
+        </details>
+        <details>
+          <summary>如何判断一个韩漫阅读渠道是否可靠？</summary>
+          <div class="answer">
+            可以从几点观察：页面是否明确标注运营主体与版权信息，是否要求与阅读无关的敏感权限，是否存在强制跳转或诱导下载行为。正规渠道通常界面清晰、更新稳定，不会以夸张弹窗引导操作。
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>韩漫大全</h4>
+        <p>一个围绕韩国漫画题材分类、阅读习惯与挑选思路整理的信息页面，帮助读者更高效地找到符合自己口味的作品方向。</p>
+      </div>
+      <div>
+        <h4>内容导航</h4>
+        <ul>
+          <li><a href="#category">题材分类</a></li>
+          <li><a href="#hot">热门推荐</a></li>
+          <li><a href="#update">更新动态</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>阅读参考</h4>
+        <ul>
+          <li><a href="#guide">入门指南</a></li>
+          <li><a href="#faq">常见问题</a></li>
+          <li><a href="#top">返回首页</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>温馨提示</h4>
+        <ul>
+          <li><a href="#guide">支持正版阅读</a></li>
+          <li><a href="#guide">注意用眼休息</a></li>
+          <li><a href="#guide">理性安排时间</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 韩漫大全 · 内容仅供阅读参考与题材介绍</span>
+      <span>页面信息以各平台实际展示为准</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // 平滑滚动与导航高亮
+  (function(){
+    var links = document.querySelectorAll('nav.main-nav a[href^="#"]');
+    links.forEach(function(link){
+      link.addEventListener('click', function(){
+        links.forEach(function(l){ l.classList.remove('active'); });
+        link.classList.add('active');
+      });
+    });
+
+    // 搜索框占位提示（不连接外部接口）
+    var searchInput = document.querySelector('.search-box input');
+    var searchBtn = document.querySelector('.search-box button');
+    if(searchBtn && searchInput){
+      searchBtn.addEventListener('click', function(){
+        var val = searchInput.value.trim();
+        if(!val){
+          searchInput.focus();
+          searchInput.placeholder = '请输入题材或作品名';
+          return;
+        }
+        var target = document.getElementById('category');
+        if(target){
+          target.scrollIntoView({behavior:'smooth'});
+        }
+      });
+    }
+  })();
+</script>
+
+</body>
+  </html>
